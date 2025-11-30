@@ -63,6 +63,17 @@ SELECTORES = {
     "confirmar": "text=Confirmar",  # Ajustar
     "confirmacion_ok": "text=Turno reservado",  # Ajustar
     "sin_turnos_text": "text=No hay horas disponibles",  # Ajustar
+    "loaders": [
+        ".blockUI",
+        "div.blockUI",
+        ".loading",
+        ".spinner",
+        ".pace",
+        ".pace-progress",
+        ".spinner-border",
+        ".fa-spinner",
+        ".lds-spinner",
+    ],
 }
 
 
@@ -187,6 +198,40 @@ def _contains_text_any_frame(page, textos: list[str]) -> bool:
     return False
 
 
+def _wait_for_loading_end(page, usuario: str, timeout_ms: int = 20000) -> bool:
+    """
+    Espera a que desaparezcan loaders conocidos en cualquier frame,
+    sin depender de dormir por segundos fijos.
+    """
+    deadline = time.time() + timeout_ms / 1000
+    loaders = SELECTORES["loaders"]
+
+    while time.time() < deadline:
+        loader_found = False
+        for frame in page.frames:
+            for sel in loaders:
+                try:
+                    handle = frame.query_selector(sel)
+                except Exception:
+                    continue
+                if handle:
+                    loader_found = True
+                    try:
+                        frame.wait_for_selector(sel, state="hidden", timeout=2000)
+                    except PlaywrightTimeoutError:
+                        # seguir intentando hasta deadline
+                        pass
+        if not loader_found:
+            # Confirmar que no hay requests en vuelo
+            try:
+                page.wait_for_load_state("networkidle", timeout=2000)
+            except PlaywrightTimeoutError:
+                pass
+            return True
+    logging.warning("[%s] Timeout esperando fin de loading", usuario)
+    return False
+
+
 # ==============================
 # LÓGICA DE TURNOS
 # ==============================
@@ -230,20 +275,15 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
     # El botón de continuar suele estar dentro de un iframe de citaconsular
     _click_first_available_any_frame(work_page, SELECTORES["landing_continuar"], usuario, timeout=20000)
     work_page.wait_for_load_state("load")
-    work_page.wait_for_timeout(1000)
-
-    # Si al continuar ya aparece el mensaje de sin turnos, cortar
-    if _contains_text_any_frame(
-        work_page, ["No hay horas disponibles", "No hay turnos disponibles"]
-    ):
-        logging.info("[%s] La página muestra que no hay turnos.", usuario)
-        return "SIN_TURNOS"
+    _wait_for_loading_end(work_page, usuario, timeout_ms=25000)
 
     # 2. Login
     # A partir de aquí usamos la página donde quedó el widget
     page = work_page
 
-    if not _wait_selector(page, SELECTORES["login_usuario"], usuario):
+    try:
+        page.wait_for_selector(SELECTORES["login_usuario"], timeout=12000)
+    except PlaywrightTimeoutError:
         # Si no apareció login, revisar si es por falta de turnos
         if _contains_text_any_frame(
             page, ["No hay horas disponibles", "No hay turnos disponibles"]
