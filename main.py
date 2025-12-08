@@ -2,6 +2,7 @@ import logging
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
+import re
 
 import pandas as pd
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -50,9 +51,23 @@ SELECTORES = {
         "text=Continue / Continuar",
         "text=Continuar",
     ],
-    "login_usuario": 'input[name="usuario"]',  # Ajustar
-    "login_password": 'input[name="password"]',  # Ajustar
-    "login_submit": 'button[type="submit"]',  # Ajustar
+    "login_usuario": [
+        "input[placeholder*='DNI']",
+        "input[name='dni']",
+        "input#dni",
+        "input[name='usuario']",
+    ],
+    "login_password": [
+        "input[placeholder*='Contraseña']",
+        "input[type='password']",
+        "input#password",
+        "input[name='password']",
+    ],
+    "login_submit": [
+        "button:has-text('Acceder')",
+        "text=Acceder",
+        "button[type='submit']",
+    ],
     "login_error": "text=usuario o contraseña incorrectos",  # Ajustar
     "continuar_turnera": "text=Continuar",  # Ajustar
     "spinner": ".spinner",  # Ajustar o remover
@@ -63,6 +78,31 @@ SELECTORES = {
     "confirmar": "text=Confirmar",  # Ajustar
     "confirmacion_ok": "text=Turno reservado",  # Ajustar
     "sin_turnos_text": "text=No hay horas disponibles",  # Ajustar
+    # Flujo “consultar mis reservas” cuando no hay turnos
+    "consultar_link": "text=Cancelar o consultar mis reservas",
+    "consultar_dni": [
+        "#idIptBktAccountLoginlogin",
+        "input[placeholder*='DNI']",
+        "input[name='login']",
+        "input[name='dni']",
+        "input#dni",
+    ],
+    "consultar_password": [
+        "#idIptBktAccountLoginpassword",
+        "input[placeholder*='Contraseña']",
+        "input[type='password']",
+        "input[name='password']",
+    ],
+    "consultar_login_btn": [
+        "#idBktDefaultAccountLoginConfirmButton",
+        "button:has-text('Acceder')",
+        "text=Acceder",
+    ],
+    "consultar_back": [
+        "text=Volver a pedir cita",
+        "button:has-text('Volver a pedir cita')",
+        "text=Volver a pedir cita →",
+    ],
     "loaders": [
         ".blockUI",
         "div.blockUI",
@@ -198,6 +238,25 @@ def _contains_text_any_frame(page, textos: list[str]) -> bool:
     return False
 
 
+def _fill_first_available_any_frame(page, selectors, value: str, usuario: str) -> bool:
+    sels = selectors if isinstance(selectors, list) else [selectors]
+    for frame in page.frames:
+        for selector in sels:
+            try:
+                frame.click(selector, timeout=3000)
+                frame.fill(selector, value, timeout=5000)
+                logging.info("[%s] Fill '%s' en frame %s", usuario, selector, frame.url)
+                return True
+            except PlaywrightTimeoutError:
+                logging.debug("[%s] Selector no disponible aún: %s en frame %s", usuario, selector, frame.url)
+                continue
+            except Exception as err:  # noqa: BLE001
+                _log_exception(usuario, f"Error llenando {selector} ({frame.url})", err)
+                continue
+    logging.warning("[%s] No se pudo llenar ningún selector: %s", usuario, selectors)
+    return False
+
+
 def _wait_for_loading_end(page, usuario: str, timeout_ms: int = 20000) -> bool:
     """
     Espera a que desaparezcan loaders conocidos en cualquier frame,
@@ -230,6 +289,113 @@ def _wait_for_loading_end(page, usuario: str, timeout_ms: int = 20000) -> bool:
             return True
     logging.warning("[%s] Timeout esperando fin de loading", usuario)
     return False
+
+
+def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int = 10000) -> bool:
+    """Espera a que exista alguno de los selectores en cualquier frame."""
+    end = time.time() + timeout_ms / 1000
+    sels = selectors if isinstance(selectors, list) else [selectors]
+    while time.time() < end:
+        for frame in page.frames:
+            for sel in sels:
+                try:
+                    if frame.query_selector(sel):
+                        return True
+                except Exception:
+                    continue
+        time.sleep(0.3)
+    logging.warning("[%s] Timeout esperando selectores %s en algún frame", usuario, sels)
+    return False
+
+
+def _get_widget_frame(page):
+    """Devuelve el frame principal del widget (bookitit/citaconsular) si existe."""
+    for frame in page.frames:
+        if "citaconsular" in frame.url or "bookitit" in frame.url:
+            return frame
+    return page.main_frame
+
+
+def _wait_fill_in_frame(frame, selectors, value: str, usuario: str, timeout_ms: int = 10000) -> bool:
+    """Espera selector en frame específico y lo completa; si falla, fuerza value via JS."""
+    end = time.time() + timeout_ms / 1000
+    sels = selectors if isinstance(selectors, list) else [selectors]
+    while time.time() < end:
+        for selector in sels:
+            try:
+                frame.wait_for_selector(selector, timeout=2000)
+                frame.click(selector, timeout=2000)
+                frame.fill(selector, value, timeout=5000)
+                logging.info("[%s] Fill '%s' en frame %s", usuario, selector, frame.url)
+                return True
+            except PlaywrightTimeoutError:
+                # Intentar forzar con JS si el selector existe pero fill falla
+                try:
+                    handle = frame.query_selector(selector)
+                    if handle:
+                        frame.evaluate(
+                            "(el, val) => { el.focus(); el.value = val; el.dispatchEvent(new Event('input', {bubbles: true})); el.dispatchEvent(new Event('change', {bubbles: true})); }",
+                            handle,
+                            value,
+                        )
+                        logging.info("[%s] Force-filled '%s' en frame %s", usuario, selector, frame.url)
+                        return True
+                except Exception:
+                    pass
+                continue
+            except Exception as err:  # noqa: BLE001
+                _log_exception(usuario, f"Error llenando {selector} ({frame.url})", err)
+                continue
+        time.sleep(0.3)
+    logging.warning("[%s] No se pudo llenar selectores en frame %s: %s", usuario, frame.url, sels)
+    return False
+
+
+def _formatear_dni(dni: str) -> str:
+    """Formatea DNI argentino a XX.XXX.XXX si es posible."""
+    digits = re.sub(r"\D", "", dni)
+    if len(digits) == 8:
+        return f"{digits[:2]}.{digits[2:5]}.{digits[5:]}"
+    if len(digits) == 7:
+        return f"{digits[:1]}.{digits[1:4]}.{digits[4:]}"
+    return dni
+
+
+def _login_desde_consultar(page, usuario: str, password: str) -> bool:
+    """
+    Abre 'Cancelar o consultar mis reservas', se loguea y vuelve atrás.
+    Devuelve True si logró hacer el ciclo.
+    """
+    if not _click_first_available_any_frame(
+        page, [SELECTORES["consultar_link"]], usuario, timeout=10000
+    ):
+        logging.warning("[%s] No se pudo abrir 'Cancelar o consultar mis reservas'", usuario)
+        return False
+
+    _wait_for_loading_end(page, usuario, timeout_ms=15000)
+
+    dni_fmt = _formatear_dni(usuario)
+    if not _fill_first_available_any_frame(page, SELECTORES["consultar_dni"], dni_fmt, usuario):
+        return False
+    if not _fill_first_available_any_frame(page, SELECTORES["consultar_password"], password, usuario):
+        return False
+
+    if not _click_first_available_any_frame(
+        page, SELECTORES["consultar_login_btn"], usuario, timeout=8000
+    ):
+        logging.warning("[%s] No se pudo clickear Acceder en consultar", usuario)
+        return False
+
+    _wait_for_loading_end(page, usuario, timeout_ms=15000)
+
+    if not _click_first_available_any_frame(
+        page, SELECTORES["consultar_back"], usuario, timeout=8000
+    ):
+        logging.warning("[%s] No se encontró flecha/volver a pedir cita", usuario)
+        return False
+
+    _wait_for_loading_end(page, usuario, timeout_ms=10000)
+    return True
 
 
 # ==============================
@@ -280,17 +446,22 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
     # 2. Login
     # A partir de aquí usamos la página donde quedó el widget
     page = work_page
+    widget_frame = _get_widget_frame(page)
 
     try:
-        page.wait_for_selector(SELECTORES["login_usuario"], timeout=12000)
-    except PlaywrightTimeoutError:
-        # Si no apareció login, revisar si es por falta de turnos
-        if _contains_text_any_frame(
-            page, ["No hay horas disponibles", "No hay turnos disponibles"]
-        ):
-            logging.info("[%s] La página muestra que no hay turnos (sin login).", usuario)
-            return "SIN_TURNOS"
+        # Primero intentar abrir el flujo de consulta si está disponible
+        _wait_for_any_frame_selector(page, [SELECTORES["consultar_link"]], usuario, timeout_ms=20000)
+        _click_first_available_any_frame(page, [SELECTORES["consultar_link"]], usuario, timeout=12000)
+        _wait_for_loading_end(page, usuario, timeout_ms=12000)
 
+        if not _wait_fill_in_frame(widget_frame, SELECTORES["login_usuario"], _formatear_dni(usuario), usuario, timeout_ms=12000):
+            raise PlaywrightTimeoutError("No se pudo ubicar campo usuario")
+
+        if not _wait_fill_in_frame(widget_frame, SELECTORES["login_password"], password, usuario, timeout_ms=12000):
+            raise PlaywrightTimeoutError("No se pudo ubicar campo contraseña")
+
+        _click_first_available_any_frame(page, SELECTORES["login_submit"], usuario, timeout=12000)
+    except PlaywrightTimeoutError:
         # Loguear un recorte del HTML para debug
         try:
             for idx, frame in enumerate(page.frames):
@@ -299,10 +470,6 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "No se pudo leer HTML para debug", err)
         return "ERROR"
-
-    page.fill(SELECTORES["login_usuario"], usuario)
-    page.fill(SELECTORES["login_password"], password)
-    _safe_click(page, SELECTORES["login_submit"], usuario)
 
     # 3. Verificar login
     try:
@@ -355,14 +522,8 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
     # 9. Esperar listado de turnos
     # TODO: ajustar selector de tabla/lista de turnos
     if not _wait_selector(page, SELECTORES["tabla_turnos"], usuario, timeout=20000):
-        # Mirar si no hay turnos o bloqueo
+        # Mirar si bloqueo u otros errores
         html = page.content()
-        if (
-            "No hay turnos disponibles" in html
-            or "No hay horas disponibles" in html
-            or _wait_selector(page, SELECTORES["sin_turnos_text"], usuario, timeout=2000)
-        ):
-            return "SIN_TURNOS"
         if "bloqueado" in html or "demasiados intentos" in html:
             return "BLOQUEADO"
         return "ERROR"
@@ -456,9 +617,6 @@ def main():
 
             if resultado == "OK":
                 df.loc[idx, COL_TURNO] = "SI"
-            elif resultado == "SIN_TURNOS":
-                logging.info("[%s] Sin turnos para este horario; se detiene el ciclo.", usuario)
-                break
             # Opcional: marcar otros estados
             # elif resultado == "SIN_TURNOS":
             #     df.loc[idx, COL_TURNO] = "SIN_TURNOS"
