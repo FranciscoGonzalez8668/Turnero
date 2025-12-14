@@ -58,12 +58,16 @@ SELECTORES = {
         "input[name='usuario']",
     ],
     "login_password": [
+        "#idIptBktAccountLoginpassword",
+        "#idIptBktSignInpassword",
         "input[placeholder*='Contraseña']",
         "input[type='password']",
         "input#password",
         "input[name='password']",
     ],
     "login_submit": [
+        "#idBktDefaultAccountLoginConfirmButton",
+        "#idBktDefaultSignInConfirmButton",
         "button:has-text('Acceder')",
         "text=Acceder",
         "button[type='submit']",
@@ -102,6 +106,22 @@ SELECTORES = {
         "text=Volver a pedir cita",
         "button:has-text('Volver a pedir cita')",
         "text=Volver a pedir cita →",
+    ],
+    "back_arrow": [
+        "#idBktDefaultAccountLoginContainer .clsDivSubHeaderBackButton",
+        "#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton",
+        "#idBktDefaultDatetimeContainer .clsDivSubHeaderBackButton",
+        "#idBktDefaultSignInContainer .clsDivSubHeaderBackButton",
+        "#idBktWidgetBody .clsDivSubHeaderBackButton",
+        "a:has(.clsDivSubHeaderBackButton)",
+        "div.clsDivSubHeaderBackButton",
+        ".clsDivSubHeaderBackButton",
+        "text=Volver a pedir cita",
+        "a[href='#services']",
+    ],
+    "ver_historial": [
+        "text=Ver historial",
+        "#idBktWidgetDefaultFooterAccountSignOutAccountContainer a:has-text('Ver historial')",
     ],
     "loaders": [
         ".blockUI",
@@ -308,6 +328,23 @@ def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int 
     return False
 
 
+def _force_click(frame, selector: str, usuario: str) -> bool:
+    """Intenta click normal y, si falla, fuerza click por JS."""
+    try:
+        frame.click(selector, timeout=2000)
+        return True
+    except Exception:
+        try:
+            el = frame.query_selector(selector)
+            if el:
+                frame.evaluate("(e)=>e.click()", el)
+                logging.info("[%s] Click forzado en %s", usuario, selector)
+                return True
+        except Exception:
+            pass
+    return False
+
+
 def _get_widget_frame(page):
     """Devuelve el frame principal del widget (bookitit/citaconsular) si existe."""
     for frame in page.frames:
@@ -398,6 +435,62 @@ def _login_desde_consultar(page, usuario: str, password: str) -> bool:
     return True
 
 
+def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> bool:
+    """
+    Ciclo: ir a la pantalla de turnos, si no hay turnos esperar 30s,
+    volver a "Ver historial" y repetir. Devuelve True si detecta la tabla
+    de turnos disponible.
+    """
+    sin_turnos_textos = ["no hay horas disponibles", "no tienes ninguna cita"]
+
+    for intento in range(max_intentos):
+        # Ir a turnos (flecha atrás) una vez por ciclo
+        arrow_clicked = _click_first_available_any_frame(page, SELECTORES["back_arrow"], usuario, timeout=8000)
+        if not arrow_clicked:
+            # Intentar forzar click por JS en algún frame
+            for frame in page.frames:
+                for sel in SELECTORES["back_arrow"]:
+                    if _force_click(frame, sel, usuario):
+                        arrow_clicked = True
+                        break
+                if arrow_clicked:
+                    break
+
+        if not arrow_clicked:
+            logging.info("[%s] Flecha no clickeada; intentando ciclo via 'Ver historial' primero", usuario)
+            _click_first_available_any_frame(page, SELECTORES["ver_historial"], usuario, timeout=8000)
+            _wait_for_loading_end(page, usuario, timeout_ms=8000)
+            _click_first_available_any_frame(page, SELECTORES["back_arrow"], usuario, timeout=8000)
+
+        _wait_for_loading_end(page, usuario, timeout_ms=12000)
+
+        # ¿Ya vemos la tabla?
+        try:
+            if page.query_selector(SELECTORES["tabla_turnos"]):
+                logging.info("[%s] Tabla de turnos detectada en intento %s", usuario, intento + 1)
+                return True
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, "Error buscando tabla de turnos", err)
+
+        # ¿Mensaje de sin turnos?
+        try:
+            html = page.content().lower()
+            if any(txt in html for txt in sin_turnos_textos):
+                logging.info("[%s] Sin turnos. Esperando 30s antes de reintentar (intento %s/%s)", usuario, intento + 1, max_intentos)
+                time.sleep(30)
+                _click_first_available_any_frame(page, SELECTORES["ver_historial"], usuario, timeout=8000)
+                _wait_for_loading_end(page, usuario, timeout_ms=12000)
+                continue
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, "Error leyendo HTML para detectar sin turnos", err)
+
+        # Si no hay mensaje de sin turnos ni tabla, intentar refrescar ciclo igualmente
+        time.sleep(3)
+
+    logging.warning("[%s] Máximos intentos sin ver turnos disponibles", usuario)
+    return False
+
+
 # ==============================
 # LÓGICA DE TURNOS
 # ==============================
@@ -479,45 +572,9 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
         # No vimos el mensaje de error rápido; asumimos login OK
         pass
 
-    # 4. Ir a la pantalla donde está "continuar"
-    # Esto depende de cómo es la web; puede que ya estemos ahí,
-    # o necesitemos un click intermedio.
-    # TODO: si hace falta, agregar pasos para llegar a esa pantalla.
-    if not _wait_selector(page, SELECTORES["continuar_turnera"], usuario):
-        return "ERROR"
-
-    # 5. Calcular horario objetivo
-    proximo_slot = calcular_proximo_horario_turnera()
-    click_time = proximo_slot - timedelta(seconds=10)
-
-    logging.info("[%s] Próximo horario turnera: %s", usuario, proximo_slot)
-    logging.info("[%s] Click en 'Continuar' a: %s", usuario, click_time)
-
-    # Esperar hasta 10 segundos antes del horario de apertura
-    esperar_hasta(click_time)
-
-    # 6. Hacer click en "Continuar" EXACTO
-    _safe_click(page, SELECTORES["continuar_turnera"], usuario)
-
-    # 7. Esperar spinner y transición
-    # TODO: ajustar selector de spinner si existe; si no, podemos esperar un tiempo fijo y seguir.
-    try:
-        page.wait_for_selector(SELECTORES["spinner"], timeout=15000)
-        page.wait_for_timeout(1000)
-        # esperar que desaparezca
-        page.wait_for_selector(SELECTORES["spinner"], state="detached", timeout=30000)
-    except PlaywrightTimeoutError:
-        # Spinner no apareció; seguimos igual, pero lo anotamos
-        logging.info("[%s] No se detectó spinner, continuando igual...", usuario)
-
-    # 8. Cartel con letras azules + aceptar
-    # TODO: ajustar textos/selector concreto.
-    try:
-        page.wait_for_selector(SELECTORES["cartel_condiciones"], timeout=20000)
-        _safe_click(page, SELECTORES["cartel_aceptar"], usuario, timeout=5000, optional=True)
-    except PlaywrightTimeoutError:
-        # Puede que no haya cartel; seguimos
-        pass
+    # 4. Ciclo para volver a la pantalla de turnos y refrescar si no hay turnos
+    if not _esperar_turnos_disponibles(page, usuario):
+        return "SIN_TURNOS"
 
     # 9. Esperar listado de turnos
     # TODO: ajustar selector de tabla/lista de turnos
