@@ -50,6 +50,9 @@ SELECTORES = {
         "button:has-text('Continue / Continuar')",
         "text=Continue / Continuar",
         "text=Continuar",
+        "a:has-text('Continuar')",
+        ".clsDivContinueButton:has-text('Continuar')",
+        "#idDivBktServicesContinueButton",
     ],
     "login_usuario": [
         "input[placeholder*='DNI']",
@@ -532,7 +535,11 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
         logging.info("[%s] Frame %s: %s", usuario, idx, frame.url)
 
     # El botón de continuar suele estar dentro de un iframe de citaconsular
-    _click_first_available_any_frame(work_page, SELECTORES["landing_continuar"], usuario, timeout=20000)
+    _wait_for_any_frame_selector(work_page, SELECTORES["landing_continuar"], usuario, timeout_ms=20000)
+    if not _click_first_available_any_frame(work_page, SELECTORES["landing_continuar"], usuario, timeout=20000):
+        logging.info("[%s] Reintentando click en Continuar con espera extra", usuario)
+        _wait_for_any_frame_selector(work_page, SELECTORES["landing_continuar"], usuario, timeout_ms=10000)
+        _click_first_available_any_frame(work_page, SELECTORES["landing_continuar"], usuario, timeout=20000)
     work_page.wait_for_load_state("load")
     _wait_for_loading_end(work_page, usuario, timeout_ms=25000)
 
