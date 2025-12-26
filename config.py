@@ -29,9 +29,14 @@ COL_TURNO = "Turno Conseguido"
 
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
 LOG_LEVEL = "INFO"
+LOG_DIR = Path("logs")
+LOG_FILE_PREFIX = "turnero"
 
 # Concurrencia
 MAX_CONCURRENT_BOTS = 2  # ajustar según recursos/IP
+# Máximo índice de slot preferido (0 = primer botón/horario). Se usa junto a la
+# distribución logarítmica por posición en la lista para repartir bots entre slots.
+MAX_SLOT_INDEX = 3
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0",
@@ -77,7 +82,16 @@ SELECTORES = {
     "cartel_condiciones": "text=condiciones",
     "cartel_aceptar": "text=Aceptar",
     "tabla_turnos": "table#turnos, .tabla-turnos",
-    "botones_turno": "text=Reservar, text=Seleccionar",
+    "slots_contenedor": "#idDivBktSlotsContainer, .clsDivDatetimeSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime, table#turnos, .tabla-turnos",
+    "botones_turno": [
+        "button:has-text(\"Reservar\")",
+        "button:has-text(\"Seleccionar\")",
+        "#idDivBktSlotsContainer button",
+        "#idDivBktSlotsContainer .clsDivDatetimeSlot",
+        ".clsDivDatetimeSlot button",
+        ".clsDivDatetimeSlot",
+        ".clsDivDatetimeSlotTime",
+    ],
     "servicio_card": [
         "text=Presentación de documentación ley",
         "text=MEMORIA DEMOCRÁTICA",
@@ -88,7 +102,21 @@ SELECTORES = {
         ".clsBktServiceDataContainer",
     ],
     "confirmar": "text=Confirmar",
-    "confirmacion_ok": "text=Turno reservado",
+    "confirmacion_ok": [
+        "text=Turno reservado",
+        "text=SU RESERVA SE HA REALIZADO CON ÉXITO",
+        "text=RESERVA REALIZADA",
+    ],
+    "print_icon": [
+        ".fa-print",
+        "i.fa-print",
+        ".clsDivBookingConfirmPrintButton",
+        "button:has(.fa-print)",
+        "a:has(.fa-print)",
+        "button[aria-label*='Imprimir']",
+        "a[aria-label*='Imprimir']",
+        "text=Imprimir",
+    ],
     "sin_turnos_text": "text=No hay horas disponibles",
     "consultar_link": "text=Cancelar o consultar mis reservas",
     "consultar_dni": [

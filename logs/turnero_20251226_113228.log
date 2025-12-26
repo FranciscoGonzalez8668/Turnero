@@ -1,0 +1,67 @@
+2025-12-26 11:32:28,239 [INFO] Log de ejecución: logs/turnero_20251226_113228.log
+2025-12-26 11:32:28,834 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2025-12-26 11:32:28,835 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,836 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,838 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,838 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,838 [WARNING] [FILA 5] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,838 [WARNING] [FILA 6] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,839 [WARNING] [FILA 7] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,839 [WARNING] [FILA 8] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,839 [WARNING] [FILA 9] Usuario/Contraseña vacíos, saltando...
+2025-12-26 11:32:28,887 [ERROR] Exception in callback SyncBase._sync.<locals>.<lambda>() at /home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py:111
+handle: <Handle SyncBase._sync.<locals>.<lambda>() at /home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py:111>
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/runner.py", line 143, in run
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/okamito/Develop/Turnero/runner.py", line 95, in _procesar_fila
+    context = _crear_contexto(browser)
+  File "/home/okamito/Develop/Turnero/runner.py", line 28, in _crear_contexto
+    return browser.new_context(
+           ~~~~~~~~~~~~~~~~~~~^
+        user_agent=ua,
+        ^^^^^^^^^^^^^^
+        viewport={"width": 1300, "height": 900},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        accept_downloads=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 13999, in new_context
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.new_context(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<36 lines>...
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 113, in _sync
+    self._dispatcher_fiber.switch()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+greenlet.error: Cannot switch to a different thread
+	Current:  <greenlet.greenlet object at 0x7f137c606f00 (otid=0x7f137d09a940) current active started main>
+	Expected: <greenlet.greenlet object at 0x7f137cafb580 (otid=0x7f137cc47300) suspended active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 111, in <lambda>
+    task.add_done_callback(lambda _: g_self.switch())
+                                     ~~~~~~~~~~~~~^^
+greenlet.error: cannot switch to a different thread (which happens to have exited)
+2025-12-26 11:32:28,935 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed

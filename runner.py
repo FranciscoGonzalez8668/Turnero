@@ -1,7 +1,10 @@
 import logging
+import math
 import random
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 from playwright.sync_api import sync_playwright
@@ -12,12 +15,41 @@ from booking import intentar_sacar_turno
 df_lock = threading.Lock()
 
 
+def _target_slot_for_idx(idx: int) -> int:
+    """Distribuye bots logarítmicamente: los primeros van al slot 0, los siguientes a slots posteriores."""
+    if idx <= 0:
+        return 0
+    slot = int(math.log2(idx + 1))
+    return min(slot, config.MAX_SLOT_INDEX)
+
+
 def _crear_contexto(browser):
     ua = random.choice(config.USER_AGENTS)
     return browser.new_context(
         user_agent=ua,
         viewport={"width": 1300, "height": 900},
+        accept_downloads=True,
     )
+
+
+def _setup_logging() -> Path:
+    config.LOG_DIR.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = config.LOG_DIR / f"{config.LOG_FILE_PREFIX}_{ts}.log"
+
+    handlers = [
+        logging.StreamHandler(),
+        logging.FileHandler(log_file, encoding="utf-8"),
+    ]
+
+    logging.basicConfig(
+        level=getattr(logging, str(config.LOG_LEVEL).upper(), logging.INFO),
+        format=config.LOG_FORMAT,
+        handlers=handlers,
+        force=True,
+    )
+    logging.info("Log de ejecución: %s", log_file)
+    return log_file
 
 
 def _cargar_excel() -> pd.DataFrame | None:
@@ -43,7 +75,14 @@ def _guardar_turno(df: pd.DataFrame, idx: int):
             logging.exception("No se pudo guardar el Excel: %s", err)
 
 
-def _procesar_fila(browser, df: pd.DataFrame, idx: int, usuario: str, password: str, turno_conseguido: str):
+def _procesar_fila(
+    browser,
+    df: pd.DataFrame,
+    idx: int,
+    usuario: str,
+    password: str,
+    turno_conseguido: str,
+):
     if not usuario or not password:
         logging.warning("[FILA %s] Usuario/Contraseña vacíos, saltando...", idx)
         return
@@ -57,7 +96,8 @@ def _procesar_fila(browser, df: pd.DataFrame, idx: int, usuario: str, password: 
     page = context.new_page()
 
     try:
-        resultado = intentar_sacar_turno(page, usuario, password)
+        target_slot = _target_slot_for_idx(idx)
+        resultado = intentar_sacar_turno(page, usuario, password, target_slot=target_slot)
     except Exception as err:  # noqa: BLE001
         logging.exception("[%s] EXCEPCIÓN no controlada: %s", usuario, err)
         resultado = "ERROR"
@@ -72,7 +112,7 @@ def _procesar_fila(browser, df: pd.DataFrame, idx: int, usuario: str, password: 
 
 
 def run():
-    logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
+    _setup_logging()
 
     df = _cargar_excel()
     if df is None:
@@ -81,26 +121,11 @@ def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
 
-        with ThreadPoolExecutor(max_workers=config.MAX_CONCURRENT_BOTS) as executor:
-            futures = []
-            for idx, row in df.iterrows():
-                usuario = str(row.get(config.COL_USUARIO, "")).strip()
-                password = str(row.get(config.COL_PASSWORD, "")).strip()
-                turno_conseguido = str(row.get(config.COL_TURNO, "")).strip()
-                futures.append(
-                    executor.submit(
-                        _procesar_fila,
-                        browser,
-                        df,
-                        idx,
-                        usuario,
-                        password,
-                        turno_conseguido,
-                    )
-                )
-
-            for future in as_completed(futures):
-                future.result()
+        for idx, row in df.iterrows():
+            usuario = str(row.get(config.COL_USUARIO, "")).strip()
+            password = str(row.get(config.COL_PASSWORD, "")).strip()
+            turno_conseguido = str(row.get(config.COL_TURNO, "")).strip()
+            _procesar_fila(browser, df, idx, usuario, password, turno_conseguido)
 
         browser.close()
 

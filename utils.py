@@ -62,16 +62,19 @@ def _safe_click(page, selector: str, usuario: str, timeout: int = 30000, optiona
         return False
 
 
-def _wait_selector(page, selector: str, usuario: str, timeout: int = 30000) -> bool:
-    try:
-        page.wait_for_selector(selector, timeout=timeout)
-        return True
-    except PlaywrightTimeoutError:
-        logging.warning("[%s] No se encontró selector: %s", usuario, selector)
-        return False
-    except Exception as err:  # noqa: BLE001
-        _log_exception(usuario, f"Error esperando selector {selector}", err)
-        return False
+def _wait_selector(page, selector, usuario: str, timeout: int = 30000) -> bool:
+    selectors = selector if isinstance(selector, list) else [selector]
+    for sel in selectors:
+        try:
+            page.wait_for_selector(sel, timeout=timeout)
+            return True
+        except PlaywrightTimeoutError:
+            continue
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, f"Error esperando selector {sel}", err)
+            continue
+    logging.warning("[%s] No se encontró selector: %s", usuario, selectors)
+    return False
 
 
 def _click_first_available(page, selectors, usuario: str, timeout: int = 30000) -> bool:

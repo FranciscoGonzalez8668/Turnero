@@ -1,6 +1,7 @@
 import logging
 import time
 from datetime import timedelta
+from pathlib import Path
 
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
@@ -38,6 +39,8 @@ def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> b
             _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
             _wait_for_loading_end(page, usuario, timeout_ms=8000)
             _click_first_available_any_frame(page, config.SELECTORES["back_arrow"], usuario, timeout=8000)
+            logging.info("[%s] Esperando 60s tras ciclo Ver historial ↔︎ Flecha", usuario)
+            time.sleep(60)
 
         _wait_for_loading_end(page, usuario, timeout_ms=12000)
 
@@ -45,8 +48,11 @@ def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> b
             if page.query_selector(config.SELECTORES["tabla_turnos"]):
                 logging.info("[%s] Tabla de turnos detectada en intento %s", usuario, intento + 1)
                 return True
+            if page.query_selector_all(config.SELECTORES["servicio_card"]):
+                logging.info("[%s] Servicio visible (tarjeta), avanzando a selección", usuario)
+                return True
         except Exception as err:  # noqa: BLE001
-            _log_exception(usuario, "Error buscando tabla de turnos", err)
+            _log_exception(usuario, "Error buscando tabla/servicio", err)
 
         try:
             html = page.content().lower()
@@ -65,7 +71,68 @@ def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> b
     return False
 
 
-def intentar_sacar_turno(page, usuario: str, password: str) -> str:
+def _seleccionar_boton_turno(botones_turno, target_slot: int, usuario: str):
+    if not botones_turno:
+        return None
+    idx_elegido = min(target_slot, len(botones_turno) - 1)
+    logging.info(
+        "[%s] Elegiendo botón de turno #%s (target %s, total %s)",
+        usuario,
+        idx_elegido,
+        target_slot,
+        len(botones_turno),
+    )
+    return botones_turno[idx_elegido]
+
+
+def _buscar_botones_turno(page, usuario: str):
+    for selector in config.SELECTORES["botones_turno"]:
+        try:
+            botones = page.query_selector_all(selector)
+            if botones:
+                logging.info("[%s] %s botones encontrados con selector %s", usuario, len(botones), selector)
+                return botones
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, f"Error listando botones de turno con {selector}", err)
+    logging.warning("[%s] No se encontraron botones de turno con los selectores configurados", usuario)
+    return []
+
+
+def _esperar_lista_horarios(page, usuario: str, timeout_ms: int = 25000) -> bool:
+    _wait_for_loading_end(page, usuario, timeout_ms=timeout_ms)
+    return _wait_selector(page, config.SELECTORES["slots_contenedor"], usuario, timeout=timeout_ms)
+
+
+def _descargar_comprobante(page, usuario: str) -> bool:
+    if not _wait_selector(page, config.SELECTORES["confirmacion_ok"], usuario, timeout=20000):
+        logging.warning("[%s] No se detectó confirmación de reserva", usuario)
+        return False
+
+    _wait_for_loading_end(page, usuario, timeout_ms=8000)
+
+    for selector in config.SELECTORES["print_icon"]:
+        try:
+            with page.expect_download(timeout=15000) as download_info:
+                if not _click_first_available_any_frame(page, [selector], usuario, timeout=8000):
+                    continue
+            download = download_info.value
+            nombre = download.suggested_filename or f"turno_{usuario}.pdf"
+            destino = Path.cwd() / nombre
+            download.save_as(str(destino))
+            logging.info("[%s] Comprobante descargado en %s", usuario, destino)
+            return True
+        except PlaywrightTimeoutError:
+            logging.warning("[%s] Timeout esperando descarga con selector %s", usuario, selector)
+            continue
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, f"Error al descargar comprobante con {selector}", err)
+            continue
+
+    logging.warning("[%s] No se pudo descargar el comprobante", usuario)
+    return False
+
+
+def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0) -> str:
     page.set_default_timeout(30000)
     page.set_default_navigation_timeout(60000)
 
@@ -129,20 +196,48 @@ def intentar_sacar_turno(page, usuario: str, password: str) -> str:
     if not _esperar_turnos_disponibles(page, usuario):
         return "SIN_TURNOS"
 
-    if _wait_selector(page, config.SELECTORES["tabla_turnos"], usuario, timeout=20000):
-        botones_turno = page.query_selector_all(config.SELECTORES["botones_turno"])
-        if not botones_turno:
-            return "SIN_TURNOS"
-        boton_elegido = botones_turno[-1]
-        boton_elegido.click()
-    else:
-        if not _wait_selector(page, config.SELECTORES["servicio_card"], usuario, timeout=20000):
+    servicio_visible = False
+    try:
+        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=12000)
+        if servicio_visible:
+            _wait_for_loading_end(page, usuario, timeout_ms=20000)
+    except Exception as err:  # noqa: BLE001
+        _log_exception(usuario, "Error intentando clickear servicio", err)
+
+    if not servicio_visible:
+        if not _wait_selector(page, config.SELECTORES["tabla_turnos"], usuario, timeout=20000):
             html = page.content()
             if "bloqueado" in html or "demasiados intentos" in html:
                 return "BLOQUEADO"
             return "SIN_TURNOS"
-        _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=10000)
-        _wait_for_loading_end(page, usuario, timeout_ms=20000)
-        _wait_selector(page, "#idDivBktSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime", usuario, timeout=20000)
+
+    _esperar_lista_horarios(page, usuario, timeout_ms=30000)
+
+    botones_turno = _buscar_botones_turno(page, usuario)
+    if not botones_turno:
+        _wait_for_loading_end(page, usuario, timeout_ms=12000)
+        _esperar_lista_horarios(page, usuario, timeout_ms=12000)
+        botones_turno = _buscar_botones_turno(page, usuario)
+
+    if not botones_turno:
+        html = page.content()
+        if "bloqueado" in html or "demasiados intentos" in html:
+            return "BLOQUEADO"
+        return "SIN_TURNOS"
+
+    boton_elegido = _seleccionar_boton_turno(botones_turno, target_slot, usuario)
+    if not boton_elegido:
+        return "SIN_TURNOS"
+    try:
+        boton_elegido.click(timeout=8000)
+    except Exception as err:  # noqa: BLE001
+        _log_exception(usuario, "Error haciendo click en botón de horario", err)
+        return "SIN_TURNOS"
+
+    _wait_for_loading_end(page, usuario, timeout_ms=15000)
+    _click_first_available_any_frame(page, [config.SELECTORES["confirmar"]], usuario, timeout=12000)
+    _wait_for_loading_end(page, usuario, timeout_ms=15000)
+
+    _descargar_comprobante(page, usuario)
 
     return "OK"
