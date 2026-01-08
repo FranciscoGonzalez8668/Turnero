@@ -28,6 +28,16 @@ def calcular_proximo_horario_turnera(now: datetime | None = None) -> datetime:
     return mañana.replace(hour=h, minute=m, second=0, microsecond=0)
 
 
+def calcular_ventana_pingpong(now: datetime | None = None) -> tuple[datetime, datetime]:
+    """Devuelve la ventana (inicio, fin) del pingpong para la hora actual (hh:10 a hh:13)."""
+    if now is None:
+        now = datetime.now()
+    base = now.replace(minute=0, second=0, microsecond=0)
+    inicio = base + timedelta(minutes=10)
+    fin = base + timedelta(minutes=13)
+    return inicio, fin
+
+
 def esperar_hasta(target: datetime):
     """Bloquea el proceso hasta el datetime target."""
     while True:
@@ -133,11 +143,24 @@ def _fill_first_available_any_frame(page, selectors, value: str, usuario: str) -
     return False
 
 
-def _wait_for_loading_end(page, usuario: str, timeout_ms: int = 20000) -> bool:
-    deadline = time.time() + timeout_ms / 1000
+def _wait_for_loading_end(
+    page, usuario: str, timeout_ms: int | None = 20000, deadline: datetime | None = None
+) -> bool:
+    deadline_ts = None if timeout_ms is None else time.time() + timeout_ms / 1000
     loaders = config.SELECTORES["loaders"]
 
-    while time.time() < deadline:
+    def _timed_out() -> bool:
+        if deadline and datetime.now() >= deadline:
+            return True
+        if deadline_ts is None:
+            return False
+        return time.time() >= deadline_ts
+
+    while True:
+        if _timed_out():
+            logging.warning("[%s] Timeout esperando fin de loading", usuario)
+            return False
+
         loader_found = False
         for frame in page.frames:
             for sel in loaders:
@@ -157,8 +180,8 @@ def _wait_for_loading_end(page, usuario: str, timeout_ms: int = 20000) -> bool:
             except PlaywrightTimeoutError:
                 pass
             return True
-    logging.warning("[%s] Timeout esperando fin de loading", usuario)
-    return False
+
+        time.sleep(0.2)
 
 
 def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int = 10000) -> bool:

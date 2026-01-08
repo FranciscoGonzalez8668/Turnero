@@ -1,6 +1,6 @@
 import logging
 import time
-from datetime import timedelta
+from datetime import datetime
 from pathlib import Path
 
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -17,13 +17,31 @@ from utils import (
     _wait_for_any_frame_selector,
     _wait_for_loading_end,
     _wait_selector,
+    calcular_ventana_pingpong,
+    esperar_hasta,
 )
 
 
-def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> bool:
+def _esperar_turnos_disponibles(
+    page, usuario: str, max_intentos: int = 50, deadline: datetime | None = None
+) -> tuple[bool, bool]:
     sin_turnos_textos = ["no hay horas disponibles", "no tienes ninguna cita"]
 
+    def _sleep_with_deadline(segundos: float) -> bool:
+        if deadline is None:
+            time.sleep(segundos)
+            return True
+        restante = (deadline - datetime.now()).total_seconds()
+        if restante <= 0:
+            return False
+        time.sleep(min(segundos, max(0, restante)))
+        return datetime.now() < deadline
+
     for intento in range(max_intentos):
+        if deadline and datetime.now() >= deadline:
+            logging.warning("[%s] Ventana de pingpong cerrada a las %s", usuario, deadline.strftime("%H:%M:%S"))
+            return False, True
+
         arrow_clicked = _click_first_available_any_frame(page, config.SELECTORES["back_arrow"], usuario, timeout=8000)
         if not arrow_clicked:
             for frame in page.frames:
@@ -37,38 +55,45 @@ def _esperar_turnos_disponibles(page, usuario: str, max_intentos: int = 50) -> b
         if not arrow_clicked:
             logging.info("[%s] Flecha no clickeada; intentando ciclo via 'Ver historial' primero", usuario)
             _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
-            _wait_for_loading_end(page, usuario, timeout_ms=8000)
+            _wait_for_loading_end(page, usuario, timeout_ms=None, deadline=deadline)
             _click_first_available_any_frame(page, config.SELECTORES["back_arrow"], usuario, timeout=8000)
-            logging.info("[%s] Esperando 60s tras ciclo Ver historial ↔︎ Flecha", usuario)
-            time.sleep(60)
+            logging.info("[%s] Ciclo Ver historial ↔︎ Flecha completado sin pausa fija", usuario)
 
-        _wait_for_loading_end(page, usuario, timeout_ms=12000)
+        _wait_for_loading_end(page, usuario, timeout_ms=None, deadline=deadline)
 
         try:
             if page.query_selector(config.SELECTORES["tabla_turnos"]):
                 logging.info("[%s] Tabla de turnos detectada en intento %s", usuario, intento + 1)
-                return True
+                return True, False
             if page.query_selector_all(config.SELECTORES["servicio_card"]):
                 logging.info("[%s] Servicio visible (tarjeta), avanzando a selección", usuario)
-                return True
+                return True, False
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error buscando tabla/servicio", err)
 
         try:
             html = page.content().lower()
             if any(txt in html for txt in sin_turnos_textos):
-                logging.info("[%s] Sin turnos. Esperando 30s antes de reintentar (intento %s/%s)", usuario, intento + 1, max_intentos)
-                time.sleep(30)
+                logging.info("[%s] Sin turnos. Reintentando pronto (intento %s/%s)", usuario, intento + 1, max_intentos)
+                if not _sleep_with_deadline(30):
+                    logging.warning("[%s] Ventana de pingpong terminada durante espera de reintento", usuario)
+                    return False, True
                 _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
-                _wait_for_loading_end(page, usuario, timeout_ms=12000)
+                _wait_for_loading_end(page, usuario, timeout_ms=None, deadline=deadline)
                 continue
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error leyendo HTML para detectar sin turnos", err)
 
-        time.sleep(3)
+        if not _sleep_with_deadline(3):
+            logging.warning("[%s] Ventana de pingpong terminada durante espera corta", usuario)
+            return False, True
+
+    if deadline and datetime.now() >= deadline:
+        logging.warning("[%s] Ventana de pingpong cerrada antes de ver turnos disponibles", usuario)
+        return False, True
 
     logging.warning("[%s] Máximos intentos sin ver turnos disponibles", usuario)
-    return False
+    return False, False
 
 
 def _seleccionar_boton_turno(botones_turno, target_slot: int, usuario: str):
@@ -193,7 +218,28 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     except PlaywrightTimeoutError:
         pass
 
-    if not _esperar_turnos_disponibles(page, usuario):
+    inicio_pingpong, fin_pingpong = calcular_ventana_pingpong()
+    ahora = datetime.now()
+    if ahora >= fin_pingpong:
+        logging.warning(
+            "[%s] Ventana de pingpong ya estaba vencida al terminar login (%s >= %s)",
+            usuario,
+            ahora.strftime("%H:%M:%S"),
+            fin_pingpong.strftime("%H:%M:%S"),
+        )
+        return "PING_TIMEOUT"
+    if ahora < inicio_pingpong:
+        logging.info("[%s] Esperando hasta %s para iniciar pingpong", usuario, inicio_pingpong.strftime("%H:%M:%S"))
+        esperar_hasta(inicio_pingpong)
+    else:
+        logging.info("[%s] Minuto 10 alcanzado, iniciando pingpong enseguida", usuario)
+
+    turnos_disponibles, deadline_hit = _esperar_turnos_disponibles(
+        page, usuario, deadline=fin_pingpong, max_intentos=50
+    )
+    if not turnos_disponibles:
+        if deadline_hit:
+            return "PING_TIMEOUT"
         return "SIN_TURNOS"
 
     servicio_visible = False

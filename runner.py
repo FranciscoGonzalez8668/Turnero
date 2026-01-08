@@ -75,6 +75,15 @@ def _guardar_turno(df: pd.DataFrame, idx: int):
             logging.exception("No se pudo guardar el Excel: %s", err)
 
 
+def _marcar_no_turno(df: pd.DataFrame, idx: int):
+    with df_lock:
+        df.loc[idx, config.COL_TURNO] = "NO"
+        try:
+            df.to_excel(config.EXCEL_PATH, index=False)
+        except Exception as err:  # noqa: BLE001
+            logging.exception("No se pudo guardar el Excel al marcar NO: %s", err)
+
+
 def _procesar_fila(
     browser,
     df: pd.DataFrame,
@@ -109,6 +118,8 @@ def _procesar_fila(
 
     if resultado == "OK":
         _guardar_turno(df, idx)
+    elif resultado == "PING_TIMEOUT":
+        _marcar_no_turno(df, idx)
 
 
 def run():
