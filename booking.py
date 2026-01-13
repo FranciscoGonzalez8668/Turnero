@@ -1,4 +1,5 @@
 import logging
+import signal
 import time
 from datetime import datetime
 from pathlib import Path
@@ -22,6 +23,46 @@ from utils import (
 )
 
 
+_dump_state: dict[str, object] = {"page": None, "usuario": None}
+_signals_registrados = False
+
+
+def _dump_html_snapshot(motivo: str):
+    page = _dump_state.get("page")
+    usuario = _dump_state.get("usuario") or "N/A"
+    if page is None:
+        logging.warning("Dump HTML solicitado (%s) pero no hay page activa", motivo)
+        return
+    try:
+        config.LOG_DIR.mkdir(parents=True, exist_ok=True)
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        destino = config.LOG_DIR / f"dump_{usuario}_{ts}.html"
+        html = page.content()
+        destino.write_text(html, encoding="utf-8")
+        logging.warning("[%s] Dump HTML (%s) guardado en %s", usuario, motivo, destino)
+    except Exception as err:  # noqa: BLE001
+        _log_exception(str(usuario), f"No se pudo guardar dump HTML por {motivo}", err)
+
+
+def _signal_dump_handler(signum, frame):  # noqa: ANN001
+    motivo = f"signal_{signum}"
+    _dump_html_snapshot(motivo)
+    raise SystemExit(0)
+
+
+def _registrar_dump_html(page, usuario: str):
+    global _signals_registrados
+    _dump_state["page"] = page
+    _dump_state["usuario"] = usuario
+    if not _signals_registrados:
+        for sig in (signal.SIGTERM, signal.SIGINT):
+            try:
+                signal.signal(sig, _signal_dump_handler)
+            except Exception:
+                continue
+        _signals_registrados = True
+
+
 def _esperar_turnos_disponibles(
     page, usuario: str, max_intentos: int = 50, deadline: datetime | None = None
 ) -> tuple[bool, bool]:
@@ -40,6 +81,7 @@ def _esperar_turnos_disponibles(
     for intento in range(max_intentos):
         if deadline and datetime.now() >= deadline:
             logging.warning("[%s] Ventana de pingpong cerrada a las %s", usuario, deadline.strftime("%H:%M:%S"))
+            _dump_html_snapshot("pingpong_deadline")
             return False, True
 
         arrow_clicked = _click_first_available_any_frame(page, config.SELECTORES["back_arrow"], usuario, timeout=8000)
@@ -86,13 +128,16 @@ def _esperar_turnos_disponibles(
 
         if not _sleep_with_deadline(3):
             logging.warning("[%s] Ventana de pingpong terminada durante espera corta", usuario)
+            _dump_html_snapshot("pingpong_deadline")
             return False, True
 
     if deadline and datetime.now() >= deadline:
         logging.warning("[%s] Ventana de pingpong cerrada antes de ver turnos disponibles", usuario)
+        _dump_html_snapshot("pingpong_deadline")
         return False, True
 
     logging.warning("[%s] Máximos intentos sin ver turnos disponibles", usuario)
+    _dump_html_snapshot("max_intentos_sin_turnos")
     return False, False
 
 
@@ -176,15 +221,19 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
         work_page.wait_for_load_state("load")
         logging.info("[%s] Sin nueva pestaña; seguimos en la actual: %s", usuario, work_page.url)
 
+    _registrar_dump_html(work_page, usuario)
+
     logging.info("[%s] URL tras popup: %s", usuario, work_page.url)
     for idx, frame in enumerate(work_page.frames):
         logging.info("[%s] Frame %s: %s", usuario, idx, frame.url)
 
-    _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=20000)
+    if not _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=20000):
+        _dump_html_snapshot("landing_continuar_timeout")
     if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=20000):
         logging.info("[%s] Reintentando click en Continuar con espera extra", usuario)
         _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=10000)
-        _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=20000)
+        if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=20000):
+            _dump_html_snapshot("landing_continuar_click_fail")
     work_page.wait_for_load_state("load")
     _wait_for_loading_end(work_page, usuario, timeout_ms=25000)
 
@@ -210,6 +259,7 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
                 logging.warning("[%s] DEBUG frame %s (url %s) snippet: %s", usuario, idx, frame.url, html)
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "No se pudo leer HTML para debug", err)
+        _dump_html_snapshot("login_timeout")
         return "ERROR"
 
     try:
