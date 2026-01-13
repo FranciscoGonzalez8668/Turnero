@@ -2,8 +2,9 @@ import logging
 import math
 import random
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -11,8 +12,14 @@ from playwright.sync_api import sync_playwright
 
 import config
 from booking import intentar_sacar_turno
+from state import load_state, save_state
 
 df_lock = threading.Lock()
+
+MAX_INTENTOS_POR_RUN = 2
+COOLDOWN_BLOQUEO = timedelta(hours=2)
+DELAY_MIN = 20
+DELAY_MAX = 45
 
 
 def _target_slot_for_idx(idx: int) -> int:
@@ -94,10 +101,10 @@ def _procesar_fila(
 ):
     if not usuario or not password:
         logging.warning("[FILA %s] Usuario/Contraseña vacíos, saltando...", idx)
-        return
+        return "SKIP"
     if turno_conseguido.upper() == "SI":
         logging.info("[%s] Ya tiene turno (Turno Conseguido = SI), saltando...", usuario)
-        return
+        return "SKIP"
 
     logging.info("=== Intentando sacar turno para usuario: %s ===", usuario)
 
@@ -120,24 +127,61 @@ def _procesar_fila(
         _guardar_turno(df, idx)
     elif resultado == "PING_TIMEOUT":
         _marcar_no_turno(df, idx)
+    return resultado
 
 
 def run():
     _setup_logging()
 
+    state = load_state()
+    ahora = datetime.now()
+    blocked_until = state.get("blocked_until")
+
+    if blocked_until and ahora < blocked_until:
+        logging.warning(
+            "IP marcada como bloqueada hasta %s. Saliendo sin ejecutar bots.",
+            blocked_until.strftime("%Y-%m-%d %H:%M:%S"),
+        )
+        save_state(blocked_until, ahora)
+        return
+
     df = _cargar_excel()
     if df is None:
+        save_state(blocked_until, ahora)
         return
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
+        intentos = 0
+        bloqueo_detectado = False
 
         for idx, row in df.iterrows():
+            if intentos >= MAX_INTENTOS_POR_RUN or bloqueo_detectado:
+                break
+
             usuario = str(row.get(config.COL_USUARIO, "")).strip()
             password = str(row.get(config.COL_PASSWORD, "")).strip()
             turno_conseguido = str(row.get(config.COL_TURNO, "")).strip()
-            _procesar_fila(browser, df, idx, usuario, password, turno_conseguido)
+            resultado = _procesar_fila(browser, df, idx, usuario, password, turno_conseguido)
+
+            if resultado in ("OK", "SIN_TURNOS", "BLOQUEADO", "ERROR"):
+                intentos += 1
+
+            if resultado == "BLOQUEADO":
+                bloqueo_detectado = True
+                blocked_until = datetime.now() + COOLDOWN_BLOQUEO
+                logging.warning(
+                    "Bloqueo detectado. Activando cooldown hasta %s",
+                    blocked_until.strftime("%Y-%m-%d %H:%M:%S"),
+                )
+                break
+
+            if intentos < MAX_INTENTOS_POR_RUN:
+                espera = random.randint(DELAY_MIN, DELAY_MAX)
+                logging.info("Esperando %s segundos antes del siguiente intento", espera)
+                time.sleep(espera)
 
         browser.close()
 
+    save_state(blocked_until, datetime.now())
     logging.info("Proceso terminado. Excel actualizado.")

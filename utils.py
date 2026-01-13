@@ -38,6 +38,21 @@ def calcular_ventana_pingpong(now: datetime | None = None) -> tuple[datetime, da
     return inicio, fin
 
 
+def calcular_proxima_ventana_pingpong(now: datetime | None = None) -> tuple[datetime, datetime]:
+    """
+    Devuelve la próxima ventana de pingpong futura (inicio a hh:10, fin a hh:13 de esa misma hora).
+    Si ya pasaron los 10 minutos de la hora actual, salta a la siguiente hora.
+    """
+    if now is None:
+        now = datetime.now()
+    base = now.replace(minute=0, second=0, microsecond=0)
+    if now.minute >= 10:
+        base += timedelta(hours=1)
+    inicio = base + timedelta(minutes=10)
+    fin = inicio + timedelta(minutes=3)
+    return inicio, fin
+
+
 def esperar_hasta(target: datetime):
     """Bloquea el proceso hasta el datetime target."""
     while True:

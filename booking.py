@@ -14,6 +14,7 @@ from utils import (
     _get_widget_frame,
     _log_exception,
     _safe_click,
+    calcular_proxima_ventana_pingpong,
     _wait_fill_in_frame,
     _wait_for_any_frame_selector,
     _wait_for_loading_end,
@@ -32,6 +33,18 @@ def _dump_html_snapshot(motivo: str):
     usuario = _dump_state.get("usuario") or "N/A"
     if page is None:
         logging.warning("Dump HTML solicitado (%s) pero no hay page activa", motivo)
+        return
+    try:
+        if page.is_closed():
+            logging.warning("Dump HTML (%s) omitido: la página ya está cerrada", motivo)
+            return
+        # Si el context/browser ya se cerró, no forzar espera.
+        ctx = page.context
+        if ctx is None or ctx.browser is None:
+            logging.warning("Dump HTML (%s) omitido: contexto o browser no disponible", motivo)
+            return
+    except Exception:
+        logging.warning("Dump HTML (%s) omitido: no se pudo verificar estado de página", motivo)
         return
     try:
         config.LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -268,16 +281,8 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     except PlaywrightTimeoutError:
         pass
 
-    inicio_pingpong, fin_pingpong = calcular_ventana_pingpong()
+    inicio_pingpong, fin_pingpong = calcular_proxima_ventana_pingpong()
     ahora = datetime.now()
-    if ahora >= fin_pingpong:
-        logging.warning(
-            "[%s] Ventana de pingpong ya estaba vencida al terminar login (%s >= %s)",
-            usuario,
-            ahora.strftime("%H:%M:%S"),
-            fin_pingpong.strftime("%H:%M:%S"),
-        )
-        return "PING_TIMEOUT"
     if ahora < inicio_pingpong:
         logging.info("[%s] Esperando hasta %s para iniciar pingpong", usuario, inicio_pingpong.strftime("%H:%M:%S"))
         esperar_hasta(inicio_pingpong)
