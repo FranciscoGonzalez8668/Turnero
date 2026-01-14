@@ -199,10 +199,10 @@ def _wait_for_loading_end(
         time.sleep(0.2)
 
 
-def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int = 10000) -> bool:
-    end = time.time() + timeout_ms / 1000
+def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int | None = 10000) -> bool:
+    end = None if timeout_ms is None else time.time() + timeout_ms / 1000
     sels = selectors if isinstance(selectors, list) else [selectors]
-    while time.time() < end:
+    while True:
         for frame in page.frames:
             for sel in sels:
                 try:
@@ -210,9 +210,10 @@ def _wait_for_any_frame_selector(page, selectors, usuario: str, timeout_ms: int 
                         return True
                 except Exception:
                     continue
+        if end is not None and time.time() >= end:
+            logging.warning("[%s] Timeout esperando selectores %s en algún frame", usuario, sels)
+            return False
         time.sleep(0.3)
-    logging.warning("[%s] Timeout esperando selectores %s en algún frame", usuario, sels)
-    return False
 
 
 def _get_widget_frame(page):

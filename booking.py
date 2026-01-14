@@ -252,9 +252,25 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
 
     page = work_page
     widget_frame = _get_widget_frame(page)
+    inicio_pingpong, fin_pingpong = calcular_proxima_ventana_pingpong()
 
     try:
-        _wait_for_any_frame_selector(page, [config.SELECTORES["consultar_link"]], usuario, timeout_ms=20000)
+        restante_ms = int((fin_pingpong - datetime.now()).total_seconds() * 1000)
+        if restante_ms <= 0:
+            logging.warning(
+                "[%s] Ventana de pingpong vencida antes de mostrar login (%s >= %s)",
+                usuario,
+                datetime.now().strftime("%H:%M:%S"),
+                fin_pingpong.strftime("%H:%M:%S"),
+            )
+            return "PING_TIMEOUT"
+
+        if not _wait_for_any_frame_selector(
+            page, [config.SELECTORES["consultar_link"]], usuario, timeout_ms=restante_ms
+        ):
+            _dump_html_snapshot("consultar_link_timeout")
+            return "PING_TIMEOUT"
+
         _click_first_available_any_frame(page, [config.SELECTORES["consultar_link"]], usuario, timeout=12000)
         _wait_for_loading_end(page, usuario, timeout_ms=12000)
 
@@ -281,7 +297,6 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     except PlaywrightTimeoutError:
         pass
 
-    inicio_pingpong, fin_pingpong = calcular_proxima_ventana_pingpong()
     ahora = datetime.now()
     if ahora < inicio_pingpong:
         logging.info("[%s] Esperando hasta %s para iniciar pingpong", usuario, inicio_pingpong.strftime("%H:%M:%S"))
