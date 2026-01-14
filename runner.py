@@ -130,7 +130,7 @@ def _procesar_fila(
     return resultado
 
 
-def run():
+def run(headless: bool = True):
     _setup_logging()
 
     state = load_state()
@@ -151,7 +151,7 @@ def run():
         return
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=headless)
         intentos = 0
         bloqueo_detectado = False
 
