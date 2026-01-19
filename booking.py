@@ -120,9 +120,13 @@ def _esperar_turnos_disponibles(
             if page.query_selector(config.SELECTORES["tabla_turnos"]):
                 logging.info("[%s] Tabla de turnos detectada en intento %s", usuario, intento + 1)
                 return True, False
-            if page.query_selector_all(config.SELECTORES["servicio_card"]):
-                logging.info("[%s] Servicio visible (tarjeta), avanzando a selección", usuario)
-                return True, False
+
+            # query_selector_all solo acepta string; iteramos la lista de selectores configurados
+            servicio_selectors = config.SELECTORES["servicio_card"]
+            for sel in servicio_selectors if isinstance(servicio_selectors, (list, tuple, set)) else [servicio_selectors]:
+                if page.query_selector_all(sel):
+                    logging.info("[%s] Servicio visible (tarjeta) con selector %s, avanzando a selección", usuario, sel)
+                    return True, False
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error buscando tabla/servicio", err)
 
