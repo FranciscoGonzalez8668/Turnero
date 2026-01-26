@@ -1,0 +1,38 @@
+2026-01-13 17:39:51,994 [INFO] Log de ejecución: logs/turnero_20260113_173951.log
+2026-01-13 17:39:53,479 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-13 17:40:00,896 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-13 17:40:00,896 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-13 17:40:00,896 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-13 17:40:01,327 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-01-13 17:40:15,655 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-01-13 17:40:17,024 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-13 17:40:17,071 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-13 17:40:17,100 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-01-13 17:40:22,102 [WARNING] [44.779.763] Ventana de pingpong ya estaba vencida al terminar login (17:40:22 >= 17:13:00)
+2026-01-13 17:40:22,145 [INFO] [44.779.763] Resultado: PING_TIMEOUT
+2026-01-13 17:40:22,159 [INFO] Esperando 32 segundos antes del siguiente intento
+2026-01-13 17:40:33,267 [ERROR] [44.779.763] No se pudo guardar dump HTML por signal_2: Page.content: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/booking.py", line 40, in _dump_html_snapshot
+    html = page.content()
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 8915, in content
+    return mapping.from_maybe_impl(self._sync(self._impl_obj.content()))
+                                   ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_page.py", line 538, in content
+    return await self._main_frame.content()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 475, in content
+    return await self._channel.send("content", None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.content: Target page, context or browser has been closed

@@ -1,0 +1,606 @@
+2026-01-14 13:21:39,606 [INFO] Log de ejecución: logs/turnero_20260114_132139.log
+2026-01-14 13:21:40,339 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-14 13:21:46,968 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-14 13:21:46,969 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-14 13:21:46,969 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-14 13:21:47,376 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-01-14 13:21:51,546 [ERROR] [44.779.763] Error click en text=Cancelar o consultar mis reservas (page): Page.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=Cancelar o consultar mis reservas")
+    - locator resolved to <div class="clsBktWidgetDefaultFooterAccountText">↵                    Cancelar o consultar mis res…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 118, in _click_first_available_any_frame
+    frame.click(selector, timeout=timeout)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 9927, in click
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.click(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_page.py", line 857, in click
+    return await self._main_frame.click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 549, in click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=Cancelar o consultar mis reservas")
+    - locator resolved to <div class="clsBktWidgetDefaultFooterAccountText">↵                    Cancelar o consultar mis res…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+
+2026-01-14 13:21:51,551 [ERROR] [44.779.763] Error click en text=Cancelar o consultar mis reservas (frame:0): Frame.click: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 118, in _click_first_available_any_frame
+    frame.click(selector, timeout=timeout)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 4412, in click
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.click(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 549, in click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.click: Target page, context or browser has been closed
+2026-01-14 13:21:51,554 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Cancelar o consultar mis reservas']
+2026-01-14 13:21:53,572 [ERROR] [44.779.763] Error llenando input[placeholder*='DNI'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,574 [ERROR] [44.779.763] Error llenando input[name='dni'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,576 [ERROR] [44.779.763] Error llenando input#dni (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,578 [ERROR] [44.779.763] Error llenando input[name='usuario'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,883 [ERROR] [44.779.763] Error llenando input[placeholder*='DNI'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,887 [ERROR] [44.779.763] Error llenando input[name='dni'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,892 [ERROR] [44.779.763] Error llenando input#dni (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:53,910 [ERROR] [44.779.763] Error llenando input[name='usuario'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,223 [ERROR] [44.779.763] Error llenando input[placeholder*='DNI'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,227 [ERROR] [44.779.763] Error llenando input[name='dni'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,230 [ERROR] [44.779.763] Error llenando input#dni (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,233 [ERROR] [44.779.763] Error llenando input[name='usuario'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,536 [ERROR] [44.779.763] Error llenando input[placeholder*='DNI'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,540 [ERROR] [44.779.763] Error llenando input[name='dni'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,543 [ERROR] [44.779.763] Error llenando input#dni (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,547 [ERROR] [44.779.763] Error llenando input[name='usuario'] (https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/): Frame.wait_for_selector: Target page, context or browser has been closed
+Traceback (most recent call last):
+  File "/home/okamito/Develop/Turnero/utils.py", line 231, in _wait_fill_in_frame
+    frame.wait_for_selector(selector, timeout=2000)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 3832, in wait_for_selector
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_selector(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            selector=selector, strict=strict, timeout=timeout, state=state
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/okamito/Develop/Turnero/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Frame.wait_for_selector: Target page, context or browser has been closed
+2026-01-14 13:21:54,783 [WARNING] Dump HTML (signal_2) omitido: la página ya está cerrada
