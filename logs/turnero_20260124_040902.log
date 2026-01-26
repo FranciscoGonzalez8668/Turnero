@@ -1,0 +1,25 @@
+2026-01-24 04:09:02,614 [INFO] Log de ejecución: logs/turnero_20260124_040902.log
+2026-01-24 04:09:03,534 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-24 04:09:09,421 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-24 04:09:09,421 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-24 04:09:09,422 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-24 04:09:09,904 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-01-24 04:09:22,424 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-01-24 04:09:23,404 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-24 04:09:23,473 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-24 04:09:23,514 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-01-24 04:09:28,521 [INFO] [44.779.763] Esperando hasta 04:10:00 para iniciar pingpong
+2026-01-24 04:10:08,112 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-01-24 04:10:08,203 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-01-24 04:10:20,296 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-01-24 04:10:50,388 [WARNING] [44.779.763] No se encontró selector: ['#idDivBktSlotsContainer, .clsDivDatetimeSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime, table#turnos, .tabla-turnos']
+2026-01-24 04:10:50,457 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-01-24 04:11:02,548 [WARNING] [44.779.763] No se encontró selector: ['#idDivBktSlotsContainer, .clsDivDatetimeSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime, table#turnos, .tabla-turnos']
+2026-01-24 04:11:02,602 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-01-24 04:11:02,684 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-01-24 04:11:02,684 [INFO] Esperando 20 segundos antes del siguiente intento
+2026-01-24 04:11:22,685 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-01-24 04:11:22,686 [INFO] Esperando 25 segundos antes del siguiente intento
+2026-01-24 04:11:47,687 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-01-24 04:11:47,687 [INFO] Esperando 31 segundos antes del siguiente intento
+2026-01-24 04:12:01,939 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada

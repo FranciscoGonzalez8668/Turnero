@@ -1,0 +1,13 @@
+2026-01-25 00:09:02,564 [INFO] Log de ejecución: logs/turnero_20260125_000902.log
+2026-01-25 00:09:03,478 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-25 00:09:08,412 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-25 00:09:08,412 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-25 00:09:08,412 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-25 00:09:09,013 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-01-25 00:09:27,661 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-01-25 00:09:29,822 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-25 00:09:29,877 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-25 00:09:29,936 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-01-25 00:09:34,940 [INFO] [44.779.763] Esperando hasta 00:10:00 para iniciar pingpong
+2026-01-25 00:10:08,527 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-01-25 00:10:08,620 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
