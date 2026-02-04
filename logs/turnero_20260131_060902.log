@@ -1,0 +1,16 @@
+2026-01-31 06:09:02,492 [INFO] Log de ejecución: logs/turnero_20260131_060902.log
+2026-01-31 06:09:03,389 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-31 06:09:11,490 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-31 06:09:11,490 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-31 06:09:11,490 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-01-31 06:09:12,002 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-01-31 06:09:25,129 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-01-31 06:09:26,849 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-31 06:09:26,910 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-01-31 06:09:26,973 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-01-31 06:09:31,980 [INFO] [44.779.763] Esperando hasta 06:10:00 para iniciar pingpong
+2026-01-31 06:10:08,544 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-01-31 06:10:08,707 [INFO] [44.779.763] Sin turnos. Reintentando pronto (intento 1/50)
+2026-01-31 06:10:38,807 [INFO] [44.779.763] Click en 'text=Ver historial' dentro de page
+2026-01-31 06:10:46,934 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-01-31 06:10:47,003 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección

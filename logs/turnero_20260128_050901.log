@@ -1,0 +1,42 @@
+2026-01-28 05:09:01,926 [INFO] Log de ejecución: logs/turnero_20260128_050901.log
+2026-01-28 05:09:02,844 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-01-28 05:09:03,027 [ERROR] [44.779.763] EXCEPCIÓN no controlada: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx
+Call log:
+  - navigating to "https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx", waiting until "load"
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 116, in _procesar_fila
+    resultado = intentar_sacar_turno(page, usuario, password, target_slot=target_slot)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/booking.py", line 226, in intentar_sacar_turno
+    page.goto(config.URL_PRINCIPAL, wait_until="load", timeout=60000)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9050, in goto
+    self._sync(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/_impl/_page.py", line 552, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx
+Call log:
+  - navigating to "https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx", waiting until "load"
+
+2026-01-28 05:09:03,117 [INFO] [44.779.763] Resultado: ERROR
+2026-01-28 05:09:03,117 [INFO] Esperando 38 segundos antes del siguiente intento
+2026-01-28 05:09:41,119 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-01-28 05:09:41,119 [INFO] Esperando 43 segundos antes del siguiente intento
+2026-01-28 05:10:24,120 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-01-28 05:10:24,120 [INFO] Esperando 23 segundos antes del siguiente intento
+2026-01-28 05:10:47,121 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-01-28 05:10:47,121 [INFO] Esperando 23 segundos antes del siguiente intento
+2026-01-28 05:11:10,122 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-01-28 05:11:10,123 [INFO] Esperando 29 segundos antes del siguiente intento
+2026-01-28 05:11:39,123 [WARNING] [FILA 5] Usuario/Contraseña vacíos, saltando...
+2026-01-28 05:11:39,124 [INFO] Esperando 42 segundos antes del siguiente intento

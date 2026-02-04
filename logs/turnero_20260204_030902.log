@@ -1,0 +1,14 @@
+2026-02-04 03:09:02,556 [INFO] Log de ejecución: logs/turnero_20260204_030902.log
+2026-02-04 03:09:03,420 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-04 03:09:09,950 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 03:09:09,950 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 03:09:09,950 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 03:09:10,397 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-04 03:09:23,533 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-04 03:09:25,101 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-04 03:09:25,166 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-04 03:09:25,238 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-04 03:09:30,244 [INFO] [44.779.763] Esperando hasta 03:10:00 para iniciar pingpong
+2026-02-04 03:10:08,331 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-04 03:10:08,405 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-04 03:12:56,498 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']

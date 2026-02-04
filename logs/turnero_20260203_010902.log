@@ -1,0 +1,14 @@
+2026-02-03 01:09:02,332 [INFO] Log de ejecución: logs/turnero_20260203_010902.log
+2026-02-03 01:09:03,222 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-03 01:09:10,486 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-03 01:09:10,486 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-03 01:09:10,488 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-03 01:09:10,925 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-03 01:09:32,641 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-02-03 01:09:34,790 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-03 01:09:34,848 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-03 01:09:34,903 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-03 01:09:39,908 [INFO] [44.779.763] Esperando hasta 01:10:00 para iniciar pingpong
+2026-02-03 01:10:08,490 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-03 01:10:08,570 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-03 01:12:56,655 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']

@@ -1,0 +1,27 @@
+2026-02-04 05:09:02,118 [INFO] Log de ejecución: logs/turnero_20260204_050902.log
+2026-02-04 05:09:03,016 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-04 05:09:09,170 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 05:09:09,170 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 05:09:09,170 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-04 05:09:09,617 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-04 05:09:23,282 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-04 05:09:24,919 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-04 05:09:24,979 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-04 05:09:25,038 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-04 05:09:30,043 [INFO] [44.779.763] Esperando hasta 05:10:00 para iniciar pingpong
+2026-02-04 05:10:08,118 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-04 05:10:08,193 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-04 05:10:20,276 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-04 05:10:23,821 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-04 05:10:23,993 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-04 05:10:24,075 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-04 05:10:24,075 [INFO] Esperando 34 segundos antes del siguiente intento
+2026-02-04 05:10:58,076 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-04 05:10:58,076 [INFO] Esperando 27 segundos antes del siguiente intento
+2026-02-04 05:11:25,077 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-04 05:11:25,078 [INFO] Esperando 42 segundos antes del siguiente intento
+2026-02-04 05:12:07,082 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-04 05:12:07,082 [INFO] Esperando 38 segundos antes del siguiente intento
+2026-02-04 05:12:45,083 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-04 05:12:45,084 [INFO] Esperando 45 segundos antes del siguiente intento
+2026-02-04 05:13:01,398 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
