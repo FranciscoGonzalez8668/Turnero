@@ -1,6 +1,0 @@
-2026-01-14 13:31:18,823 [INFO] Log de ejecución: logs/turnero_20260114_133118.log
-2026-01-14 13:31:19,606 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
-2026-01-14 13:31:26,619 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
-2026-01-14 13:31:26,619 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
-2026-01-14 13:31:26,620 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
-2026-01-14 13:31:27,073 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
