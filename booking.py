@@ -28,6 +28,22 @@ _dump_state: dict[str, object] = {"page": None, "usuario": None}
 _signals_registrados = False
 
 
+def _dump_memoria(page, usuario: str, etiqueta: str):
+    """Guarda un dump HTML específico para la pantalla de Memoria Democrática."""
+    try:
+        if page is None or page.is_closed():
+            logging.warning("[%s] Dump memoria (%s) omitido: page no disponible", usuario, etiqueta)
+            return
+        destino_dir = Path("logs_memorias")
+        destino_dir.mkdir(parents=True, exist_ok=True)
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        destino = destino_dir / f"dump_memoria_{usuario}_{ts}_{etiqueta}.html"
+        destino.write_text(page.content(), encoding="utf-8")
+        logging.info("[%s] Dump memoria (%s) guardado en %s", usuario, etiqueta, destino)
+    except Exception as err:  # noqa: BLE001
+        _log_exception(usuario, f"No se pudo guardar dump memoria ({etiqueta})", err)
+
+
 def _dump_html_snapshot(motivo: str):
     page = _dump_state.get("page")
     usuario = _dump_state.get("usuario") or "N/A"
@@ -321,6 +337,12 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
         servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=12000)
         if servicio_visible:
             _wait_for_loading_end(page, usuario, timeout_ms=20000)
+            _dump_memoria(page, usuario, "instantaneo")
+            try:
+                page.wait_for_timeout(10000)
+            except Exception:
+                time.sleep(10)
+            _dump_memoria(page, usuario, "10seg")
     except Exception as err:  # noqa: BLE001
         _log_exception(usuario, "Error intentando clickear servicio", err)
 
