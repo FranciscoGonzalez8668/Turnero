@@ -1,0 +1,29 @@
+2026-02-11 06:09:01,943 [INFO] Log de ejecución: logs/turnero_20260211_060901.log
+2026-02-11 06:09:02,859 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 06:09:12,123 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,124 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,124 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,714 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 06:09:27,219 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 06:09:28,831 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 06:09:28,886 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 06:09:28,945 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 06:09:33,951 [INFO] [44.779.763] Esperando hasta 06:10:00 para iniciar pingpong
+2026-02-11 06:10:08,529 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 06:10:08,604 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 06:10:20,707 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-11 06:10:20,903 [INFO] [44.779.763] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_44.779.763_20260211_061020_instantaneo.html
+2026-02-11 06:10:30,960 [INFO] [44.779.763] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_44.779.763_20260211_061030_10seg.html
+2026-02-11 06:10:31,087 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 06:10:31,221 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 06:10:31,294 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-11 06:10:31,295 [INFO] Esperando 33 segundos antes del siguiente intento
+2026-02-11 06:11:04,296 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:11:04,296 [INFO] Esperando 25 segundos antes del siguiente intento
+2026-02-11 06:11:29,297 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:11:29,297 [INFO] Esperando 38 segundos antes del siguiente intento
+2026-02-11 06:12:07,298 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:12:07,299 [INFO] Esperando 39 segundos antes del siguiente intento
+2026-02-11 06:12:46,300 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:12:46,300 [INFO] Esperando 24 segundos antes del siguiente intento
+2026-02-11 06:13:01,273 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada

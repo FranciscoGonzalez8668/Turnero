@@ -1,0 +1,50 @@
+2026-02-13 07:09:01,790 [INFO] Log de ejecución: logs/turnero_20260213_070901.log
+2026-02-13 07:09:02,677 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 07:09:08,885 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:08,885 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:08,886 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:09,332 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 07:09:21,945 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 07:09:23,625 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 07:09:23,716 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 07:09:23,775 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 07:09:28,782 [INFO] [24.336.765] Esperando hasta 07:10:00 para iniciar pingpong
+2026-02-13 07:10:08,362 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:10:08,539 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 07:10:38,637 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:10:46,786 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:10:46,950 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 07:11:17,043 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:11:25,193 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:11:25,365 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 07:11:55,437 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:12:03,582 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:12:03,733 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 07:12:33,817 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:12:41,969 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:12:42,134 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 07:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 07:13:00,072 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 07:13:00,079 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 07:13:00,085 [INFO] Esperando 37 segundos antes del siguiente intento
+2026-02-13 07:13:01,118 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada

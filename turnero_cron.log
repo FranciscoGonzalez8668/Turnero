@@ -6302,3 +6302,791 @@ Killed
 2026-02-05 08:10:08,336 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
 2026-02-05 08:12:56,425 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
 Killed
+2026-02-06 06:09:02,976 [INFO] Log de ejecución: logs/turnero_20260206_060902.log
+2026-02-06 06:09:04,769 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-06 06:09:13,199 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 06:09:13,200 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 06:09:13,200 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 06:09:13,694 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-06 06:09:27,409 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-06 06:09:28,341 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 06:09:28,399 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 06:09:28,457 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-06 06:09:33,462 [INFO] [44.779.763] Esperando hasta 06:10:00 para iniciar pingpong
+2026-02-06 06:10:08,543 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-06 06:10:08,644 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-06 06:12:56,738 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-06 07:09:02,684 [INFO] Log de ejecución: logs/turnero_20260206_070902.log
+2026-02-06 07:09:03,578 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-06 07:09:11,756 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 07:09:11,757 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 07:09:11,757 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 07:09:12,192 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-06 07:09:25,366 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-06 07:09:27,090 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 07:09:27,159 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 07:09:27,220 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-06 07:09:32,225 [INFO] [44.779.763] Esperando hasta 07:10:00 para iniciar pingpong
+2026-02-06 07:10:08,316 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-06 07:10:08,412 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-06 07:10:20,502 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-06 07:10:20,579 [INFO] [44.779.763] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_44.779.763_20260206_071020_instantaneo.html
+2026-02-06 07:10:30,631 [INFO] [44.779.763] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_44.779.763_20260206_071030_10seg.html
+2026-02-06 07:10:30,762 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-06 07:10:30,910 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-06 07:10:30,987 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-06 07:10:30,987 [INFO] Esperando 41 segundos antes del siguiente intento
+2026-02-06 07:11:11,988 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-06 07:11:11,989 [INFO] Esperando 22 segundos antes del siguiente intento
+2026-02-06 07:11:33,990 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-06 07:11:33,990 [INFO] Esperando 35 segundos antes del siguiente intento
+2026-02-06 07:12:08,991 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-06 07:12:08,991 [INFO] Esperando 24 segundos antes del siguiente intento
+2026-02-06 07:12:32,992 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-06 07:12:32,993 [INFO] Esperando 44 segundos antes del siguiente intento
+2026-02-06 07:13:02,012 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-06 08:09:02,074 [INFO] Log de ejecución: logs/turnero_20260206_080902.log
+2026-02-06 08:09:02,997 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-06 08:09:10,985 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 08:09:10,985 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 08:09:10,986 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-06 08:09:11,416 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-06 08:09:25,234 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-06 08:09:26,923 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 08:09:27,010 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-06 08:09:27,066 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-06 08:09:32,073 [INFO] [44.779.763] Esperando hasta 08:10:00 para iniciar pingpong
+2026-02-06 08:10:08,151 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-06 08:10:08,225 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-06 08:12:56,310 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 00:09:02,249 [INFO] Log de ejecución: logs/turnero_20260211_000902.log
+2026-02-11 00:09:03,948 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 00:09:12,552 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 00:09:12,552 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 00:09:12,552 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 00:09:13,163 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 00:09:40,050 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-02-11 00:09:41,992 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 00:09:42,049 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 00:09:42,111 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 00:09:47,115 [INFO] [44.779.763] Esperando hasta 00:10:00 para iniciar pingpong
+2026-02-11 00:10:08,196 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 00:10:08,295 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 00:12:56,382 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 01:09:02,024 [INFO] Log de ejecución: logs/turnero_20260211_010902.log
+2026-02-11 01:09:02,894 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 01:09:08,957 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 01:09:08,957 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 01:09:08,957 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 01:09:09,424 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 01:09:21,521 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 01:09:23,294 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 01:09:23,357 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 01:09:23,416 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 01:09:28,421 [INFO] [44.779.763] Esperando hasta 01:10:00 para iniciar pingpong
+2026-02-11 01:10:08,501 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 01:10:08,574 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 01:12:56,667 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 02:09:02,144 [INFO] Log de ejecución: logs/turnero_20260211_020902.log
+2026-02-11 02:09:03,080 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 02:09:10,327 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 02:09:10,327 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 02:09:10,327 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 02:09:11,072 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 02:09:24,209 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 02:09:26,120 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 02:09:26,178 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 02:09:26,239 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 02:09:31,245 [INFO] [44.779.763] Esperando hasta 02:10:00 para iniciar pingpong
+2026-02-11 02:10:08,324 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 02:10:08,401 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 02:12:56,487 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 03:09:03,048 [INFO] Log de ejecución: logs/turnero_20260211_030903.log
+2026-02-11 03:09:04,204 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 03:09:11,879 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 03:09:11,879 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 03:09:11,879 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 03:09:12,344 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 03:09:25,534 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 03:09:27,190 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 03:09:27,251 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 03:09:27,312 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 03:09:32,317 [INFO] [44.779.763] Esperando hasta 03:10:00 para iniciar pingpong
+2026-02-11 03:10:08,397 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 03:10:08,473 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 03:12:56,558 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 04:09:02,437 [INFO] Log de ejecución: logs/turnero_20260211_040902.log
+2026-02-11 04:09:03,337 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 04:09:09,144 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 04:09:09,145 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 04:09:09,146 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 04:09:09,640 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 04:09:22,189 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 04:09:23,924 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 04:09:24,019 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 04:09:24,076 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 04:09:29,082 [INFO] [44.779.763] Esperando hasta 04:10:00 para iniciar pingpong
+2026-02-11 04:10:08,170 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 04:10:08,246 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 04:12:56,333 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 05:09:02,568 [INFO] Log de ejecución: logs/turnero_20260211_050902.log
+2026-02-11 05:09:03,475 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 05:09:13,811 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 05:09:13,812 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 05:09:13,812 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 05:09:15,086 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 05:09:31,789 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 05:09:33,371 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 05:09:33,449 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 05:09:33,505 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 05:09:38,510 [INFO] [44.779.763] Esperando hasta 05:10:00 para iniciar pingpong
+2026-02-11 05:10:08,093 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 05:10:08,171 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 05:10:20,266 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-11 05:10:20,364 [INFO] [44.779.763] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_44.779.763_20260211_051020_instantaneo.html
+2026-02-11 05:10:30,397 [INFO] [44.779.763] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_44.779.763_20260211_051030_10seg.html
+2026-02-11 05:10:30,509 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 05:10:30,645 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 05:10:30,721 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-11 05:10:30,722 [INFO] Esperando 24 segundos antes del siguiente intento
+2026-02-11 05:10:54,723 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-11 05:10:54,723 [INFO] Esperando 44 segundos antes del siguiente intento
+2026-02-11 05:11:38,724 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-11 05:11:38,725 [INFO] Esperando 36 segundos antes del siguiente intento
+2026-02-11 05:12:14,726 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-11 05:12:14,726 [INFO] Esperando 34 segundos antes del siguiente intento
+2026-02-11 05:12:48,727 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-11 05:12:48,727 [INFO] Esperando 26 segundos antes del siguiente intento
+2026-02-11 05:13:01,898 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-11 06:09:01,943 [INFO] Log de ejecución: logs/turnero_20260211_060901.log
+2026-02-11 06:09:02,859 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 06:09:12,123 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,124 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,124 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 06:09:12,714 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 06:09:27,219 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 06:09:28,831 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 06:09:28,886 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 06:09:28,945 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 06:09:33,951 [INFO] [44.779.763] Esperando hasta 06:10:00 para iniciar pingpong
+2026-02-11 06:10:08,529 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 06:10:08,604 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 06:10:20,707 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-11 06:10:20,903 [INFO] [44.779.763] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_44.779.763_20260211_061020_instantaneo.html
+2026-02-11 06:10:30,960 [INFO] [44.779.763] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_44.779.763_20260211_061030_10seg.html
+2026-02-11 06:10:31,087 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 06:10:31,221 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-11 06:10:31,294 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-11 06:10:31,295 [INFO] Esperando 33 segundos antes del siguiente intento
+2026-02-11 06:11:04,296 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:11:04,296 [INFO] Esperando 25 segundos antes del siguiente intento
+2026-02-11 06:11:29,297 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:11:29,297 [INFO] Esperando 38 segundos antes del siguiente intento
+2026-02-11 06:12:07,298 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:12:07,299 [INFO] Esperando 39 segundos antes del siguiente intento
+2026-02-11 06:12:46,300 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-11 06:12:46,300 [INFO] Esperando 24 segundos antes del siguiente intento
+2026-02-11 06:13:01,273 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-11 07:09:02,331 [INFO] Log de ejecución: logs/turnero_20260211_070902.log
+2026-02-11 07:09:03,241 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 07:09:12,934 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 07:09:12,935 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 07:09:12,935 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 07:09:14,075 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 07:09:36,689 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-02-11 07:09:38,837 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 07:09:38,925 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 07:09:38,985 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 07:09:43,990 [INFO] [44.779.763] Esperando hasta 07:10:00 para iniciar pingpong
+2026-02-11 07:10:08,579 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 07:10:08,660 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 07:12:56,746 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-11 08:09:02,455 [INFO] Log de ejecución: logs/turnero_20260211_080902.log
+2026-02-11 08:09:03,366 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-11 08:09:10,017 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 08:09:10,019 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 08:09:10,019 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-11 08:09:10,629 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-11 08:09:25,968 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-11 08:09:26,891 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 08:09:26,950 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-11 08:09:27,003 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-11 08:09:32,009 [INFO] [44.779.763] Esperando hasta 08:10:00 para iniciar pingpong
+2026-02-11 08:10:08,102 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-11 08:10:08,181 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-11 08:12:56,274 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 00:09:02,465 [INFO] Log de ejecución: logs/turnero_20260212_000902.log
+2026-02-12 00:09:03,378 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 00:09:11,871 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 00:09:11,871 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 00:09:11,871 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 00:09:12,492 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 00:09:29,993 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-02-12 00:09:32,119 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 00:09:32,177 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 00:09:32,236 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 00:09:37,241 [INFO] [44.779.763] Esperando hasta 00:10:00 para iniciar pingpong
+2026-02-12 00:10:08,320 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 00:10:08,396 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 00:12:56,486 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 01:09:02,573 [INFO] Log de ejecución: logs/turnero_20260212_010902.log
+2026-02-12 01:09:03,478 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 01:09:11,209 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 01:09:11,209 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 01:09:11,210 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 01:09:11,685 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 01:09:26,335 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 01:09:28,480 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 01:09:28,533 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 01:09:28,591 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 01:09:33,596 [INFO] [44.779.763] Esperando hasta 01:10:00 para iniciar pingpong
+2026-02-12 01:10:08,178 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 01:10:08,253 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 01:12:56,341 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 02:09:01,708 [INFO] Log de ejecución: logs/turnero_20260212_020901.log
+2026-02-12 02:09:02,598 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 02:09:10,649 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 02:09:10,649 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 02:09:10,649 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 02:09:11,136 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 02:09:28,439 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de frame:0
+2026-02-12 02:09:28,574 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 02:09:28,655 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 02:09:28,714 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 02:09:33,718 [INFO] [44.779.763] Esperando hasta 02:10:00 para iniciar pingpong
+2026-02-12 02:10:08,301 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 02:10:08,384 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 02:12:56,477 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 03:09:01,845 [INFO] Log de ejecución: logs/turnero_20260212_030901.log
+2026-02-12 03:09:02,731 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 03:09:10,158 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 03:09:10,159 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 03:09:10,159 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 03:09:10,601 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 03:09:23,195 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 03:09:25,033 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 03:09:25,113 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 03:09:25,174 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 03:09:30,179 [INFO] [44.779.763] Esperando hasta 03:10:00 para iniciar pingpong
+2026-02-12 03:10:08,274 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 03:10:08,359 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 03:12:56,452 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 04:09:01,993 [INFO] Log de ejecución: logs/turnero_20260212_040901.log
+2026-02-12 04:09:02,875 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 04:09:10,850 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 04:09:10,850 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 04:09:10,850 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 04:09:11,276 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 04:09:24,406 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 04:09:25,397 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 04:09:25,451 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 04:09:25,524 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 04:09:30,530 [INFO] [44.779.763] Esperando hasta 04:10:00 para iniciar pingpong
+2026-02-12 04:10:08,111 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 04:10:08,185 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 04:10:20,285 [INFO] [44.779.763] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-12 04:10:20,357 [INFO] [44.779.763] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_44.779.763_20260212_041020_instantaneo.html
+2026-02-12 04:10:30,411 [INFO] [44.779.763] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_44.779.763_20260212_041030_10seg.html
+2026-02-12 04:10:30,517 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-12 04:10:30,653 [WARNING] [44.779.763] No se encontraron botones de turno con los selectores configurados
+2026-02-12 04:10:30,748 [INFO] [44.779.763] Resultado: SIN_TURNOS
+2026-02-12 04:10:30,748 [INFO] Esperando 23 segundos antes del siguiente intento
+2026-02-12 04:10:53,749 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-12 04:10:53,750 [INFO] Esperando 44 segundos antes del siguiente intento
+2026-02-12 04:11:37,750 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-12 04:11:37,751 [INFO] Esperando 21 segundos antes del siguiente intento
+2026-02-12 04:11:58,752 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-12 04:11:58,752 [INFO] Esperando 28 segundos antes del siguiente intento
+2026-02-12 04:12:26,753 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-02-12 04:12:26,754 [INFO] Esperando 42 segundos antes del siguiente intento
+2026-02-12 04:13:01,307 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-12 05:09:02,346 [INFO] Log de ejecución: logs/turnero_20260212_050902.log
+2026-02-12 05:09:03,237 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 05:09:11,169 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 05:09:11,169 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 05:09:11,170 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 05:09:11,652 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 05:09:25,427 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 05:09:27,074 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 05:09:27,159 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 05:09:27,214 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 05:09:32,220 [INFO] [44.779.763] Esperando hasta 05:10:00 para iniciar pingpong
+2026-02-12 05:10:08,301 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 05:10:08,382 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 05:12:56,470 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 06:09:02,466 [INFO] Log de ejecución: logs/turnero_20260212_060902.log
+2026-02-12 06:09:03,361 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 06:09:11,097 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 06:09:11,097 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 06:09:11,097 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 06:09:11,624 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 06:09:25,245 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 06:09:27,087 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 06:09:27,146 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 06:09:27,208 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 06:09:32,213 [INFO] [44.779.763] Esperando hasta 06:10:00 para iniciar pingpong
+2026-02-12 06:10:08,281 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 06:10:08,365 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 06:12:56,459 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 07:09:02,592 [INFO] Log de ejecución: logs/turnero_20260212_070902.log
+2026-02-12 07:09:03,513 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 07:09:12,164 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 07:09:12,164 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 07:09:12,164 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 07:09:12,584 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 07:09:25,271 [INFO] [44.779.763] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-12 07:09:26,991 [INFO] [44.779.763] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 07:09:27,068 [INFO] [44.779.763] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-12 07:09:27,111 [INFO] [44.779.763] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-12 07:09:32,115 [INFO] [44.779.763] Esperando hasta 07:10:00 para iniciar pingpong
+2026-02-12 07:10:08,196 [INFO] [44.779.763] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-12 07:10:08,272 [INFO] [44.779.763] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-12 07:12:56,356 [WARNING] [44.779.763] No se pudo clickear con ningún selector en ningún frame: ['text=Presentación de documentación ley', 'text=MEMORIA DEMOCRÁTICA', 'text=PRESENTACIÓN DE DOCUMENTACIÓN LEY', 'text=Memoria democrática', '#idListServices a', '.clsBktServiceDataContainer a', '.clsBktServiceDataContainer']
+Killed
+2026-02-12 08:09:01,748 [INFO] Log de ejecución: logs/turnero_20260212_080901.log
+2026-02-12 08:09:02,651 [INFO] === Intentando sacar turno para usuario: 44.779.763 ===
+2026-02-12 08:09:10,551 [INFO] [44.779.763] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 08:09:10,551 [INFO] [44.779.763] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 08:09:10,551 [INFO] [44.779.763] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-12 08:09:11,040 [INFO] [44.779.763] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-12 08:13:00,138 [WARNING] [44.779.763] Timeout esperando selectores ['text=Cancelar o consultar mis reservas'] en algún frame
+2026-02-12 08:13:00,146 [WARNING] [44.779.763] Dump HTML (consultar_link_timeout) guardado en logs/dump_44.779.763_20260212_081300.html
+2026-02-12 08:13:00,218 [INFO] [44.779.763] Resultado: PING_TIMEOUT
+2026-02-12 08:13:00,231 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-12 08:13:00,249 [INFO] Esperando 37 segundos antes del siguiente intento
+2026-02-12 08:13:01,059 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 01:09:02,585 [INFO] Log de ejecución: logs/turnero_20260213_010902.log
+2026-02-13 01:09:03,470 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 01:09:11,865 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 01:09:11,866 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 01:09:11,869 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 01:09:12,662 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 01:09:25,258 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 01:09:26,891 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 01:09:26,978 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 01:09:27,039 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 01:09:32,044 [INFO] [24.336.765] Esperando hasta 01:10:00 para iniciar pingpong
+2026-02-13 01:10:08,121 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 01:10:08,294 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 01:10:38,393 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 01:10:46,534 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 01:10:46,731 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 01:11:16,817 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 01:11:24,981 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 01:11:25,158 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 01:11:55,234 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 01:12:03,358 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 01:12:03,528 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 01:12:33,590 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 01:12:41,720 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 01:12:41,889 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 01:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 01:13:00,090 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 01:13:00,102 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 01:13:00,121 [INFO] Esperando 32 segundos antes del siguiente intento
+2026-02-13 01:13:01,909 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 02:09:01,937 [INFO] Log de ejecución: logs/turnero_20260213_020901.log
+2026-02-13 02:09:02,849 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 02:09:10,464 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 02:09:10,465 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 02:09:10,465 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 02:09:10,969 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 02:09:24,250 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 02:09:26,080 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 02:09:26,174 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 02:09:26,231 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 02:09:31,237 [INFO] [24.336.765] Esperando hasta 02:10:00 para iniciar pingpong
+2026-02-13 02:10:08,332 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 02:10:08,503 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 02:10:38,613 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 02:10:46,738 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 02:10:46,894 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 02:11:16,975 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 02:11:25,103 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 02:11:25,276 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 02:11:55,349 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 02:12:03,486 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 02:12:03,665 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 02:12:33,736 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 02:12:41,875 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 02:12:42,023 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 02:13:00,001 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 02:13:00,061 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 02:13:00,065 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 02:13:00,073 [INFO] Esperando 23 segundos antes del siguiente intento
+2026-02-13 02:13:01,265 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 03:09:02,312 [INFO] Log de ejecución: logs/turnero_20260213_030902.log
+2026-02-13 03:09:03,214 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 03:09:11,358 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 03:09:11,358 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 03:09:11,358 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 03:09:11,819 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 03:09:24,071 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 03:09:25,730 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 03:09:25,824 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 03:09:25,886 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 03:09:30,892 [INFO] [24.336.765] Esperando hasta 03:10:00 para iniciar pingpong
+2026-02-13 03:10:08,473 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 03:10:08,673 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 03:10:38,757 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 03:10:46,911 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 03:10:47,071 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 03:11:17,151 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 03:11:25,310 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 03:11:25,488 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 03:11:55,582 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 03:12:03,725 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 03:12:03,890 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 03:12:33,962 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 03:12:42,091 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 03:12:42,270 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 03:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 03:13:00,087 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 03:13:00,097 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 03:13:00,107 [INFO] Esperando 30 segundos antes del siguiente intento
+2026-02-13 03:13:01,626 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 04:09:02,678 [INFO] Log de ejecución: logs/turnero_20260213_040902.log
+2026-02-13 04:09:03,592 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 04:09:10,706 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 04:09:10,707 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 04:09:10,707 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 04:09:11,158 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 04:09:23,726 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 04:09:25,354 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 04:09:25,447 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 04:09:25,506 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 04:09:30,513 [INFO] [24.336.765] Esperando hasta 04:10:00 para iniciar pingpong
+2026-02-13 04:10:08,105 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 04:10:08,296 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 04:10:38,393 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 04:10:46,551 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 04:10:46,717 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 04:11:16,804 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 04:11:24,946 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 04:11:25,134 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 04:11:55,221 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 04:12:03,342 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 04:12:03,503 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 04:12:33,567 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 04:12:41,689 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 04:12:41,868 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 04:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 04:13:00,073 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 04:13:00,076 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 04:13:00,082 [INFO] Esperando 20 segundos antes del siguiente intento
+2026-02-13 04:13:02,009 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 05:09:02,041 [INFO] Log de ejecución: logs/turnero_20260213_050902.log
+2026-02-13 05:09:02,964 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 05:09:09,064 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 05:09:09,066 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 05:09:09,066 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 05:09:09,528 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 05:09:22,170 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 05:09:23,872 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 05:09:23,971 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 05:09:24,034 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 05:09:29,041 [INFO] [24.336.765] Esperando hasta 05:10:00 para iniciar pingpong
+2026-02-13 05:10:08,114 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 05:10:08,308 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 05:10:38,403 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 05:10:46,540 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 05:10:46,700 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 05:11:16,785 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 05:11:24,926 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 05:11:25,108 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 05:11:55,214 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 05:12:03,354 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 05:12:03,517 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 05:12:33,590 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 05:12:41,714 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 05:12:41,892 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 05:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 05:13:00,068 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 05:13:00,072 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 05:13:00,079 [INFO] Esperando 24 segundos antes del siguiente intento
+2026-02-13 05:13:01,370 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 06:09:02,445 [INFO] Log de ejecución: logs/turnero_20260213_060902.log
+2026-02-13 06:09:03,344 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 06:09:09,995 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 06:09:09,998 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 06:09:09,998 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 06:09:10,478 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 06:09:23,516 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 06:09:25,149 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 06:09:25,242 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 06:09:25,299 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 06:09:30,307 [INFO] [24.336.765] Esperando hasta 06:10:00 para iniciar pingpong
+2026-02-13 06:10:08,385 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 06:10:08,580 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 06:10:38,672 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 06:10:46,810 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 06:10:46,975 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 06:11:17,058 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 06:11:25,221 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 06:11:25,389 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 06:11:55,502 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 06:12:03,633 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 06:12:03,794 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 06:12:33,864 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 06:12:41,995 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 06:12:42,176 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 06:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 06:13:00,069 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 06:13:00,076 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 06:13:00,082 [INFO] Esperando 28 segundos antes del siguiente intento
+2026-02-13 06:13:01,749 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 07:09:01,790 [INFO] Log de ejecución: logs/turnero_20260213_070901.log
+2026-02-13 07:09:02,677 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 07:09:08,885 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:08,885 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:08,886 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 07:09:09,332 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 07:09:21,945 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 07:09:23,625 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 07:09:23,716 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 07:09:23,775 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 07:09:28,782 [INFO] [24.336.765] Esperando hasta 07:10:00 para iniciar pingpong
+2026-02-13 07:10:08,362 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:10:08,539 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 07:10:38,637 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:10:46,786 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:10:46,950 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 07:11:17,043 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:11:25,193 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:11:25,365 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 07:11:55,437 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:12:03,582 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:12:03,733 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 07:12:33,817 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 07:12:41,969 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 07:12:42,134 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 07:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 07:13:00,072 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 07:13:00,079 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 07:13:00,085 [INFO] Esperando 37 segundos antes del siguiente intento
+2026-02-13 07:13:01,118 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
+2026-02-13 08:09:02,169 [INFO] Log de ejecución: logs/turnero_20260213_080902.log
+2026-02-13 08:09:03,057 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-13 08:09:09,860 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 08:09:09,861 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 08:09:09,861 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-13 08:09:10,297 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-13 08:09:23,360 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-13 08:09:24,356 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 08:09:24,462 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-13 08:09:24,510 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-13 08:09:29,516 [INFO] [24.336.765] Esperando hasta 08:10:00 para iniciar pingpong
+2026-02-13 08:10:08,099 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 08:10:08,286 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 1/50)
+2026-02-13 08:10:38,383 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 08:10:46,525 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 08:10:46,692 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 2/50)
+2026-02-13 08:11:16,757 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 08:11:24,886 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 08:11:25,060 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 3/50)
+2026-02-13 08:11:55,141 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 08:12:03,272 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 08:12:03,421 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 4/50)
+2026-02-13 08:12:33,486 [INFO] [24.336.765] Click en 'text=Ver historial' dentro de page
+2026-02-13 08:12:41,621 [INFO] [24.336.765] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-13 08:12:41,838 [INFO] [24.336.765] Sin turnos. Reintentando pronto (intento 5/50)
+2026-02-13 08:13:00,000 [WARNING] [24.336.765] Ventana de pingpong terminada durante espera de reintento
+2026-02-13 08:13:00,073 [INFO] [24.336.765] Resultado: PING_TIMEOUT
+2026-02-13 08:13:00,083 [ERROR] No se pudo guardar el Excel al marcar NO: [Errno 13] Permission denied: 'turnos.xlsx'
+Traceback (most recent call last):
+  File "/home/andy/Turnero/runner.py", line 89, in _marcar_no_turno
+    df.to_excel(config.EXCEL_PATH, index=False)
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 2439, in to_excel
+    formatter.write(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/formats/excel.py", line 943, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 61, in __init__
+    super().__init__(
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1246, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "/home/andy/Turnero/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'turnos.xlsx'
+2026-02-13 08:13:00,088 [INFO] Esperando 29 segundos antes del siguiente intento
+2026-02-13 08:13:01,485 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
