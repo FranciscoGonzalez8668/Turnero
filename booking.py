@@ -150,7 +150,7 @@ def _esperar_turnos_disponibles(
             html = page.content().lower()
             if any(txt in html for txt in sin_turnos_textos):
                 logging.info("[%s] Sin turnos. Reintentando pronto (intento %s/%s)", usuario, intento + 1, max_intentos)
-                if not _sleep_with_deadline(30):
+                if not _sleep_with_deadline(0.5):
                     logging.warning("[%s] Ventana de pingpong terminada durante espera de reintento", usuario)
                     return False, True
                 _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
@@ -159,7 +159,7 @@ def _esperar_turnos_disponibles(
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error leyendo HTML para detectar sin turnos", err)
 
-        if not _sleep_with_deadline(3):
+        if not _sleep_with_deadline(0.5):
             logging.warning("[%s] Ventana de pingpong terminada durante espera corta", usuario)
             _dump_html_snapshot("pingpong_deadline")
             return False, True
