@@ -1,0 +1,18 @@
+2026-02-14 21:40:57,791 [INFO] Log de ejecución: logs/turnero_20260214_214057.log
+2026-02-14 21:40:58,682 [INFO] === Intentando sacar turno para usuario: 24.336.765 ===
+2026-02-14 21:41:08,128 [INFO] [24.336.765] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-14 21:41:08,130 [INFO] [24.336.765] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-14 21:41:08,131 [INFO] [24.336.765] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-14 21:41:08,595 [INFO] [24.336.765] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-14 21:41:21,073 [INFO] [24.336.765] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-14 21:41:22,742 [INFO] [24.336.765] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-14 21:41:22,837 [INFO] [24.336.765] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-14 21:41:22,888 [INFO] [24.336.765] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-14 21:41:23,856 [INFO] [24.336.765] Resultado: ERROR
+2026-02-14 21:41:23,857 [INFO] Esperando 41 segundos antes del siguiente intento
+2026-02-14 21:42:04,858 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-14 21:42:04,858 [INFO] Esperando 23 segundos antes del siguiente intento
+2026-02-14 21:42:27,859 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-14 21:42:27,859 [INFO] Esperando 27 segundos antes del siguiente intento
+2026-02-14 21:42:54,860 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-14 21:42:54,861 [INFO] Esperando 35 segundos antes del siguiente intento
