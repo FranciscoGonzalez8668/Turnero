@@ -1,4 +1,5 @@
 import logging
+import re
 import signal
 import time
 from datetime import datetime
@@ -28,6 +29,19 @@ _dump_state: dict[str, object] = {"page": None, "usuario": None}
 _signals_registrados = False
 
 
+def _safe_fragment(value: str) -> str:
+    cleaned = re.sub(r"[^0-9A-Za-z_.-]+", "_", str(value)).strip("_")
+    return cleaned or "N_A"
+
+
+def _save_runtime_screenshot(page, destino: Path, usuario: str, etiqueta: str):
+    try:
+        page.screenshot(path=str(destino), full_page=True)
+        logging.info("[%s] Screenshot runtime (%s) guardado en %s", usuario, etiqueta, destino)
+    except Exception as err:  # noqa: BLE001
+        _log_exception(usuario, f"No se pudo guardar screenshot runtime ({etiqueta})", err)
+
+
 def _dump_memoria(page, usuario: str, etiqueta: str):
     """Guarda un dump HTML específico para la pantalla de Memoria Democrática."""
     try:
@@ -37,9 +51,12 @@ def _dump_memoria(page, usuario: str, etiqueta: str):
         destino_dir = Path("logs_memorias")
         destino_dir.mkdir(parents=True, exist_ok=True)
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        destino = destino_dir / f"dump_memoria_{usuario}_{ts}_{etiqueta}.html"
-        destino.write_text(page.content(), encoding="utf-8")
-        logging.info("[%s] Dump memoria (%s) guardado en %s", usuario, etiqueta, destino)
+        etiqueta_segura = _safe_fragment(etiqueta)
+        destino_html = destino_dir / f"dump_memoria_{usuario}_{ts}_{etiqueta_segura}.html"
+        destino_png = destino_dir / f"screenshot_memoria_{usuario}_{ts}_{etiqueta_segura}.png"
+        destino_html.write_text(page.content(), encoding="utf-8")
+        logging.info("[%s] Dump memoria (%s) guardado en %s", usuario, etiqueta, destino_html)
+        _save_runtime_screenshot(page, destino_png, usuario, etiqueta)
     except Exception as err:  # noqa: BLE001
         _log_exception(usuario, f"No se pudo guardar dump memoria ({etiqueta})", err)
 
@@ -65,10 +82,13 @@ def _dump_html_snapshot(motivo: str):
     try:
         config.LOG_DIR.mkdir(parents=True, exist_ok=True)
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        motivo_seguro = _safe_fragment(motivo)
         destino = config.LOG_DIR / f"dump_{usuario}_{ts}.html"
+        destino_png = config.LOG_DIR / f"screenshot_{usuario}_{ts}_{motivo_seguro}.png"
         html = page.content()
         destino.write_text(html, encoding="utf-8")
         logging.warning("[%s] Dump HTML (%s) guardado en %s", usuario, motivo, destino)
+        _save_runtime_screenshot(page, destino_png, str(usuario), motivo)
     except Exception as err:  # noqa: BLE001
         _log_exception(str(usuario), f"No se pudo guardar dump HTML por {motivo}", err)
 
