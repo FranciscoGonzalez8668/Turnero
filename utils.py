@@ -159,7 +159,11 @@ def _fill_first_available_any_frame(page, selectors, value: str, usuario: str) -
 
 
 def _wait_for_loading_end(
-    page, usuario: str, timeout_ms: int | None = 20000, deadline: datetime | None = None
+    page,
+    usuario: str,
+    timeout_ms: int | None = 20000,
+    deadline: datetime | None = None,
+    use_networkidle: bool = True,
 ) -> bool:
     deadline_ts = None if timeout_ms is None else time.time() + timeout_ms / 1000
     loaders = config.SELECTORES["loaders"]
@@ -190,10 +194,11 @@ def _wait_for_loading_end(
                     except PlaywrightTimeoutError:
                         pass
         if not loader_found:
-            try:
-                page.wait_for_load_state("networkidle", timeout=2000)
-            except PlaywrightTimeoutError:
-                pass
+            if use_networkidle:
+                try:
+                    page.wait_for_load_state("networkidle", timeout=2000)
+                except PlaywrightTimeoutError:
+                    pass
             return True
 
         time.sleep(0.2)

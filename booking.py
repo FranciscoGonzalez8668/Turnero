@@ -170,7 +170,7 @@ def _esperar_turnos_disponibles(
             html = page.content().lower()
             if any(txt in html for txt in sin_turnos_textos):
                 logging.info("[%s] Sin turnos. Reintentando pronto (intento %s/%s)", usuario, intento + 1, max_intentos)
-                if not _sleep_with_deadline(0.5):
+                if not _sleep_with_deadline(2):
                     logging.warning("[%s] Ventana de pingpong terminada durante espera de reintento", usuario)
                     return False, True
                 _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
@@ -179,7 +179,7 @@ def _esperar_turnos_disponibles(
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error leyendo HTML para detectar sin turnos", err)
 
-        if not _sleep_with_deadline(0.5):
+        if not _sleep_with_deadline(2):
             logging.warning("[%s] Ventana de pingpong terminada durante espera corta", usuario)
             _dump_html_snapshot("pingpong_deadline")
             return False, True
@@ -208,7 +208,7 @@ def _seleccionar_boton_turno(botones_turno, target_slot: int, usuario: str):
     return botones_turno[idx_elegido]
 
 
-def _buscar_botones_turno(page, usuario: str):
+def _buscar_botones_turno(page, usuario: str, quiet: bool = False):
     for selector in config.SELECTORES["botones_turno"]:
         try:
             botones = page.query_selector_all(selector)
@@ -217,26 +217,27 @@ def _buscar_botones_turno(page, usuario: str):
                 return botones
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, f"Error listando botones de turno con {selector}", err)
-    logging.warning("[%s] No se encontraron botones de turno con los selectores configurados", usuario)
+    if not quiet:
+        logging.warning("[%s] No se encontraron botones de turno con los selectores configurados", usuario)
     return []
 
 
-def _esperar_lista_horarios(page, usuario: str, timeout_ms: int = 25000) -> bool:
-    _wait_for_loading_end(page, usuario, timeout_ms=timeout_ms)
+def _esperar_lista_horarios(page, usuario: str, timeout_ms: int = 25000, use_networkidle: bool = True) -> bool:
+    _wait_for_loading_end(page, usuario, timeout_ms=timeout_ms, use_networkidle=use_networkidle)
     return _wait_selector(page, config.SELECTORES["slots_contenedor"], usuario, timeout=timeout_ms)
 
 
 def _descargar_comprobante(page, usuario: str) -> bool:
-    if not _wait_selector(page, config.SELECTORES["confirmacion_ok"], usuario, timeout=20000):
+    if not _wait_selector(page, config.SELECTORES["confirmacion_ok"], usuario, timeout=30000):
         logging.warning("[%s] No se detectó confirmación de reserva", usuario)
         return False
 
-    _wait_for_loading_end(page, usuario, timeout_ms=8000)
+    _wait_for_loading_end(page, usuario, timeout_ms=12000)
 
     for selector in config.SELECTORES["print_icon"]:
         try:
-            with page.expect_download(timeout=15000) as download_info:
-                if not _click_first_available_any_frame(page, [selector], usuario, timeout=8000):
+            with page.expect_download(timeout=20000) as download_info:
+                if not _click_first_available_any_frame(page, [selector], usuario, timeout=12000):
                     continue
             download = download_info.value
             nombre = download.suggested_filename or f"turno_{usuario}.pdf"
@@ -266,7 +267,7 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
 
     work_page = page
     try:
-        new_page = page.context.wait_for_event("page", timeout=15000)
+        new_page = page.context.wait_for_event("page", timeout=25000)
         work_page = new_page
         work_page.wait_for_load_state("load")
         logging.info("[%s] Se abrió nueva pestaña para el widget: %s", usuario, work_page.url)
@@ -280,15 +281,15 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     for idx, frame in enumerate(work_page.frames):
         logging.info("[%s] Frame %s: %s", usuario, idx, frame.url)
 
-    if not _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=20000):
+    if not _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=30000):
         _dump_html_snapshot("landing_continuar_timeout")
-    if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=20000):
+    if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=30000):
         logging.info("[%s] Reintentando click en Continuar con espera extra", usuario)
-        _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=10000)
-        if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=20000):
+        _wait_for_any_frame_selector(work_page, config.SELECTORES["landing_continuar"], usuario, timeout_ms=15000)
+        if not _click_first_available_any_frame(work_page, config.SELECTORES["landing_continuar"], usuario, timeout=30000):
             _dump_html_snapshot("landing_continuar_click_fail")
     work_page.wait_for_load_state("load")
-    _wait_for_loading_end(work_page, usuario, timeout_ms=25000)
+    _wait_for_loading_end(work_page, usuario, timeout_ms=35000)
 
     page = work_page
     widget_frame = _get_widget_frame(page)
@@ -311,16 +312,16 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
             _dump_html_snapshot("consultar_link_timeout")
             return "PING_TIMEOUT"
 
-        _click_first_available_any_frame(page, [config.SELECTORES["consultar_link"]], usuario, timeout=12000)
-        _wait_for_loading_end(page, usuario, timeout_ms=12000)
+        _click_first_available_any_frame(page, [config.SELECTORES["consultar_link"]], usuario, timeout=20000)
+        _wait_for_loading_end(page, usuario, timeout_ms=20000)
 
-        if not _wait_fill_in_frame(widget_frame, config.SELECTORES["login_usuario"], _formatear_dni(usuario), usuario, timeout_ms=12000):
+        if not _wait_fill_in_frame(widget_frame, config.SELECTORES["login_usuario"], _formatear_dni(usuario), usuario, timeout_ms=20000):
             raise PlaywrightTimeoutError("No se pudo ubicar campo usuario")
 
-        if not _wait_fill_in_frame(widget_frame, config.SELECTORES["login_password"], password, usuario, timeout_ms=12000):
+        if not _wait_fill_in_frame(widget_frame, config.SELECTORES["login_password"], password, usuario, timeout_ms=20000):
             raise PlaywrightTimeoutError("No se pudo ubicar campo contraseña")
 
-        _click_first_available_any_frame(page, config.SELECTORES["login_submit"], usuario, timeout=12000)
+        _click_first_available_any_frame(page, config.SELECTORES["login_submit"], usuario, timeout=20000)
     except PlaywrightTimeoutError:
         try:
             for idx, frame in enumerate(page.frames):
@@ -353,33 +354,51 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
         return "SIN_TURNOS"
 
     servicio_visible = False
+    memoria_click_ts: float | None = None
+    dump_10seg_realizado = False
     try:
-        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=12000)
+        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=20000)
         if servicio_visible:
-            _wait_for_loading_end(page, usuario, timeout_ms=20000)
+            _wait_for_loading_end(page, usuario, timeout_ms=30000, use_networkidle=False)
             _dump_memoria(page, usuario, "instantaneo")
-            try:
-                page.wait_for_timeout(10000)
-            except Exception:
-                time.sleep(10)
-            _dump_memoria(page, usuario, "10seg")
+            memoria_click_ts = time.monotonic()
     except Exception as err:  # noqa: BLE001
         _log_exception(usuario, "Error intentando clickear servicio", err)
 
     if not servicio_visible:
-        if not _wait_selector(page, config.SELECTORES["tabla_turnos"], usuario, timeout=20000):
+        if not _wait_selector(page, config.SELECTORES["tabla_turnos"], usuario, timeout=30000):
             html = page.content()
             if "bloqueado" in html or "demasiados intentos" in html:
                 return "BLOQUEADO"
             return "SIN_TURNOS"
 
-    _esperar_lista_horarios(page, usuario, timeout_ms=30000)
+    # Polling continuo de slots sin bloqueos largos: mantiene al bot atento a
+    # botones nuevos dentro de la ventana activa.
+    botones_turno = []
+    while datetime.now() < fin_pingpong:
+        if memoria_click_ts and not dump_10seg_realizado and (time.monotonic() - memoria_click_ts) >= 10:
+            _dump_memoria(page, usuario, "10seg")
+            dump_10seg_realizado = True
 
-    botones_turno = _buscar_botones_turno(page, usuario)
+        botones_turno = _buscar_botones_turno(page, usuario, quiet=True)
+        if botones_turno:
+            break
+
+        html = page.content().lower()
+        if "bloqueado" in html or "demasiados intentos" in html:
+            return "BLOQUEADO"
+
+        _wait_for_loading_end(
+            page,
+            usuario,
+            timeout_ms=1500,
+            deadline=fin_pingpong,
+            use_networkidle=False,
+        )
+        time.sleep(0.25)
+
     if not botones_turno:
-        _wait_for_loading_end(page, usuario, timeout_ms=12000)
-        _esperar_lista_horarios(page, usuario, timeout_ms=12000)
-        botones_turno = _buscar_botones_turno(page, usuario)
+        botones_turno = _buscar_botones_turno(page, usuario, quiet=False)
 
     if not botones_turno:
         html = page.content()
@@ -391,14 +410,14 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     if not boton_elegido:
         return "SIN_TURNOS"
     try:
-        boton_elegido.click(timeout=8000)
+        boton_elegido.click(timeout=12000)
     except Exception as err:  # noqa: BLE001
         _log_exception(usuario, "Error haciendo click en botón de horario", err)
         return "SIN_TURNOS"
 
-    _wait_for_loading_end(page, usuario, timeout_ms=15000)
-    _click_first_available_any_frame(page, [config.SELECTORES["confirmar"]], usuario, timeout=12000)
-    _wait_for_loading_end(page, usuario, timeout_ms=15000)
+    _wait_for_loading_end(page, usuario, timeout_ms=25000)
+    _click_first_available_any_frame(page, [config.SELECTORES["confirmar"]], usuario, timeout=20000)
+    _wait_for_loading_end(page, usuario, timeout_ms=25000)
 
     _descargar_comprobante(page, usuario)
 
