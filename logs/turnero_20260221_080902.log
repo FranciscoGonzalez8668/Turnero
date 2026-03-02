@@ -1,0 +1,31 @@
+2026-02-21 08:09:02,008 [INFO] Log de ejecución: logs/turnero_20260221_080902.log
+2026-02-21 08:09:02,886 [INFO] === Intentando sacar turno para usuario: 40.226.461 ===
+2026-02-21 08:09:11,885 [INFO] [40.226.461] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-21 08:09:11,886 [INFO] [40.226.461] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-21 08:09:11,887 [INFO] [40.226.461] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-02-21 08:09:12,329 [INFO] [40.226.461] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-02-21 08:09:25,296 [INFO] [40.226.461] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-02-21 08:09:26,889 [INFO] [40.226.461] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-21 08:09:26,951 [INFO] [40.226.461] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-02-21 08:09:27,010 [INFO] [40.226.461] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-02-21 08:09:32,015 [INFO] [40.226.461] Esperando hasta 08:10:00 para iniciar pingpong
+2026-02-21 08:10:08,096 [INFO] [40.226.461] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-02-21 08:10:08,171 [INFO] [40.226.461] Servicio visible (tarjeta) con selector text=Presentación de documentación ley, avanzando a selección
+2026-02-21 08:10:20,275 [INFO] [40.226.461] Click en 'text=MEMORIA DEMOCRÁTICA' dentro de page
+2026-02-21 08:10:20,350 [INFO] [40.226.461] Dump memoria (instantaneo) guardado en logs_memorias/dump_memoria_40.226.461_20260221_081020_instantaneo.html
+2026-02-21 08:10:20,424 [INFO] [40.226.461] Screenshot runtime (instantaneo) guardado en logs_memorias/screenshot_memoria_40.226.461_20260221_081020_instantaneo.png
+2026-02-21 08:10:30,477 [INFO] [40.226.461] Dump memoria (10seg) guardado en logs_memorias/dump_memoria_40.226.461_20260221_081030_10seg.html
+2026-02-21 08:10:30,566 [INFO] [40.226.461] Screenshot runtime (10seg) guardado en logs_memorias/screenshot_memoria_40.226.461_20260221_081030_10seg.png
+2026-02-21 08:11:00,614 [WARNING] [40.226.461] No se encontró selector: ['#idDivBktSlotsContainer, .clsDivDatetimeSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime, table#turnos, .tabla-turnos']
+2026-02-21 08:11:00,667 [WARNING] [40.226.461] No se encontraron botones de turno con los selectores configurados
+2026-02-21 08:11:12,755 [WARNING] [40.226.461] No se encontró selector: ['#idDivBktSlotsContainer, .clsDivDatetimeSlotsContainer, .clsDivDatetimeSlot, .clsDivDatetimeSlotTime, table#turnos, .tabla-turnos']
+2026-02-21 08:11:12,821 [WARNING] [40.226.461] No se encontraron botones de turno con los selectores configurados
+2026-02-21 08:11:12,891 [INFO] [40.226.461] Resultado: SIN_TURNOS
+2026-02-21 08:11:12,891 [INFO] Esperando 25 segundos antes del siguiente intento
+2026-02-21 08:11:37,892 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-02-21 08:11:37,892 [INFO] Esperando 39 segundos antes del siguiente intento
+2026-02-21 08:12:16,893 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-02-21 08:12:16,894 [INFO] Esperando 41 segundos antes del siguiente intento
+2026-02-21 08:12:57,894 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-02-21 08:12:57,895 [INFO] Esperando 39 segundos antes del siguiente intento
+2026-02-21 08:13:01,344 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
