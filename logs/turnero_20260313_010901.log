@@ -1,0 +1,23 @@
+2026-03-13 01:09:01,942 [INFO] Log de ejecución: logs/turnero_20260313_010901.log
+2026-03-13 01:09:02,849 [INFO] === Intentando sacar turno para usuario: 18.380.695 ===
+2026-03-13 01:09:11,041 [INFO] [18.380.695] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-13 01:09:11,042 [INFO] [18.380.695] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-13 01:09:11,042 [INFO] [18.380.695] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-13 01:09:11,647 [INFO] [18.380.695] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-03-13 01:09:26,365 [INFO] [18.380.695] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-03-13 01:09:28,708 [INFO] [18.380.695] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-03-13 01:09:28,766 [INFO] [18.380.695] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-03-13 01:09:28,842 [INFO] [18.380.695] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-03-13 01:09:31,364 [INFO] [18.380.695] Resultado: ERROR
+2026-03-13 01:09:31,368 [INFO] Esperando 42 segundos antes del siguiente intento
+2026-03-13 01:10:13,369 [WARNING] [FILA 1] Usuario/Contraseña vacíos, saltando...
+2026-03-13 01:10:13,370 [INFO] Esperando 39 segundos antes del siguiente intento
+2026-03-13 01:10:52,370 [WARNING] [FILA 2] Usuario/Contraseña vacíos, saltando...
+2026-03-13 01:10:52,371 [INFO] Esperando 42 segundos antes del siguiente intento
+2026-03-13 01:11:34,372 [WARNING] [FILA 3] Usuario/Contraseña vacíos, saltando...
+2026-03-13 01:11:34,372 [INFO] Esperando 27 segundos antes del siguiente intento
+2026-03-13 01:12:01,373 [WARNING] [FILA 4] Usuario/Contraseña vacíos, saltando...
+2026-03-13 01:12:01,374 [INFO] Esperando 36 segundos antes del siguiente intento
+2026-03-13 01:12:37,374 [WARNING] [FILA 5] Usuario/Contraseña vacíos, saltando...
+2026-03-13 01:12:37,375 [INFO] Esperando 28 segundos antes del siguiente intento
+2026-03-13 01:13:01,269 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada

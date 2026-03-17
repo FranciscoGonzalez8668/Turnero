@@ -1,0 +1,56 @@
+2026-03-17 07:09:02,459 [INFO] Log de ejecución: logs/turnero_20260317_070902.log
+2026-03-17 07:09:03,351 [INFO] === Intentando sacar turno para usuario: 46.911.896 ===
+2026-03-17 07:09:10,000 [INFO] [46.911.896] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-17 07:09:10,000 [INFO] [46.911.896] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-17 07:09:10,001 [INFO] [46.911.896] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-17 07:09:10,536 [INFO] [46.911.896] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-03-17 07:09:31,601 [INFO] [46.911.896] Click en 'text=Cancelar o consultar mis reservas' dentro de page
+2026-03-17 07:09:33,764 [INFO] [46.911.896] Fill 'input[placeholder*='DNI']' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-03-17 07:09:33,827 [INFO] [46.911.896] Fill '#idIptBktAccountLoginpassword' en frame https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043/#signinaccount
+2026-03-17 07:09:33,892 [INFO] [46.911.896] Click en '#idBktDefaultAccountLoginConfirmButton' dentro de page
+2026-03-17 07:09:38,901 [INFO] [46.911.896] Esperando hasta 07:10:00 para iniciar pingpong
+2026-03-17 07:10:08,490 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:10:08,669 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 1/50)
+2026-03-17 07:10:12,159 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:10:20,288 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:10:20,450 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 2/50)
+2026-03-17 07:10:26,536 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:10:34,644 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:10:34,803 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 3/50)
+2026-03-17 07:10:40,369 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:10:48,501 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:10:48,674 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 4/50)
+2026-03-17 07:10:50,742 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:10:58,853 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:10:59,042 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 5/50)
+2026-03-17 07:11:02,490 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:11:10,591 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:11:10,764 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 6/50)
+2026-03-17 07:11:15,783 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:11:23,890 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:11:24,081 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 7/50)
+2026-03-17 07:11:26,181 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:11:34,289 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:11:34,442 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 8/50)
+2026-03-17 07:11:37,376 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:11:45,489 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:11:45,646 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 9/50)
+2026-03-17 07:11:48,552 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:11:56,648 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:11:56,783 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 10/50)
+2026-03-17 07:11:59,714 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:12:07,830 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:12:08,021 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 11/50)
+2026-03-17 07:12:12,517 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:12:20,627 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:12:20,764 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 12/50)
+2026-03-17 07:12:23,019 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:12:31,123 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:12:31,288 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 13/50)
+2026-03-17 07:12:34,240 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:12:42,355 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:12:42,489 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 14/50)
+2026-03-17 07:12:44,575 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page
+2026-03-17 07:12:52,694 [INFO] [46.911.896] Click en '#idBktDefaultAccountHistoryContainer .clsDivSubHeaderBackButton' dentro de page
+2026-03-17 07:12:52,883 [INFO] [46.911.896] Sin turnos. Reintentando pronto (intento 15/50)
+2026-03-17 07:12:54,959 [INFO] [46.911.896] Click en 'text=Ver historial' dentro de page

@@ -1,0 +1,8 @@
+2026-03-04 00:09:02,120 [INFO] Log de ejecución: logs/turnero_20260304_000902.log
+2026-03-04 00:09:03,007 [INFO] === Intentando sacar turno para usuario: 08.558.794 ===
+2026-03-04 00:09:34,704 [INFO] [08.558.794] Sin nueva pestaña; seguimos en la actual: https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx
+2026-03-04 00:09:34,705 [INFO] [08.558.794] URL tras popup: https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx
+2026-03-04 00:09:34,705 [INFO] [08.558.794] Frame 0: https://www.exteriores.gob.es/Consulados/bahiablanca/es/ServiciosConsulares/Paginas/Solicitud-de-cita-previa--Ley-de-Memoria-Democr%c3%a1tica.aspx
+2026-03-04 00:10:04,895 [WARNING] [08.558.794] Timeout esperando selectores ["button:has-text('Continue / Continuar')", 'text=Continue / Continuar', 'text=Continuar', "a:has-text('Continuar')", ".clsDivContinueButton:has-text('Continuar')", '#idDivBktServicesContinueButton'] en algún frame
+2026-03-04 00:10:04,906 [WARNING] [08.558.794] Dump HTML (landing_continuar_timeout) guardado en logs/dump_08.558.794_20260304_001004.html
+2026-03-04 00:10:05,309 [INFO] [08.558.794] Screenshot runtime (landing_continuar_timeout) guardado en logs/screenshot_08.558.794_20260304_001004_landing_continuar_timeout.png

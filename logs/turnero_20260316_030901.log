@@ -1,0 +1,12 @@
+2026-03-16 03:09:01,924 [INFO] Log de ejecución: logs/turnero_20260316_030901.log
+2026-03-16 03:09:02,827 [INFO] === Intentando sacar turno para usuario: 46.911.896 ===
+2026-03-16 03:09:10,469 [INFO] [46.911.896] Se abrió nueva pestaña para el widget: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-16 03:09:10,471 [INFO] [46.911.896] URL tras popup: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-16 03:09:10,471 [INFO] [46.911.896] Frame 0: https://www.citaconsular.es/es/hosteds/widgetdefault/2a30ca6f59fb5f176361063c56c79d043
+2026-03-16 03:09:10,943 [INFO] [46.911.896] Click en 'button:has-text('Continue / Continuar')' dentro de page
+2026-03-16 03:13:00,293 [WARNING] [46.911.896] Timeout esperando selectores ['text=Cancelar o consultar mis reservas'] en algún frame
+2026-03-16 03:13:00,301 [WARNING] [46.911.896] Dump HTML (consultar_link_timeout) guardado en logs/dump_46.911.896_20260316_031300.html
+2026-03-16 03:13:00,389 [INFO] [46.911.896] Screenshot runtime (consultar_link_timeout) guardado en logs/screenshot_46.911.896_20260316_031300_consultar_link_timeout.png
+2026-03-16 03:13:00,439 [INFO] [46.911.896] Resultado: PING_TIMEOUT
+2026-03-16 03:13:00,463 [INFO] Esperando 28 segundos antes del siguiente intento
+2026-03-16 03:13:01,257 [WARNING] Dump HTML (signal_15) omitido: la página ya está cerrada
