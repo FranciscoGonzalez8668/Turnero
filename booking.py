@@ -159,10 +159,14 @@ def _esperar_turnos_disponibles(
 
             # query_selector_all solo acepta string; iteramos la lista de selectores configurados
             servicio_selectors = config.SELECTORES["servicio_card"]
+            cartel_encontrado = False
             for sel in servicio_selectors if isinstance(servicio_selectors, (list, tuple, set)) else [servicio_selectors]:
                 if page.query_selector_all(sel):
                     logging.info("[%s] Servicio visible (tarjeta) con selector %s, avanzando a selección", usuario, sel)
+                    cartel_encontrado = True
                     return True, False
+            if not cartel_encontrado:
+                logging.info("[%s] Cartel Memoria Democrática no visible (intento %s/%s)", usuario, intento + 1, max_intentos)
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error buscando tabla/servicio", err)
 
