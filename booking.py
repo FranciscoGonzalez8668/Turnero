@@ -152,7 +152,7 @@ def _esperar_turnos_disponibles(
 
         _wait_for_loading_end(page, usuario, timeout_ms=None, deadline=deadline)
 
-        if intento == 0:
+        if intento % 3 == 0:
             _dump_memoria(page, usuario, f"pingpong_intento_{intento + 1}")
 
         try:
