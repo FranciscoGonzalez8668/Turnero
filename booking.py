@@ -152,19 +152,32 @@ def _esperar_turnos_disponibles(
 
         _wait_for_loading_end(page, usuario, timeout_ms=None, deadline=deadline)
 
-        try:
-            if page.query_selector(config.SELECTORES["tabla_turnos"]):
-                logging.info("[%s] Tabla de turnos detectada en intento %s", usuario, intento + 1)
-                return True, False
+        if intento == 0:
+            _dump_memoria(page, usuario, f"pingpong_intento_{intento + 1}")
 
-            # query_selector_all solo acepta string; iteramos la lista de selectores configurados
+        try:
+            # Buscar tabla_turnos en todos los frames
+            for frame in page.frames:
+                try:
+                    if frame.query_selector(config.SELECTORES["tabla_turnos"]):
+                        logging.info("[%s] Tabla de turnos detectada en intento %s (frame %s)", usuario, intento + 1, frame.url)
+                        return True, False
+                except Exception:
+                    continue
+
+            # Buscar servicio_card en todos los frames
             servicio_selectors = config.SELECTORES["servicio_card"]
+            sels = servicio_selectors if isinstance(servicio_selectors, (list, tuple, set)) else [servicio_selectors]
             cartel_encontrado = False
-            for sel in servicio_selectors if isinstance(servicio_selectors, (list, tuple, set)) else [servicio_selectors]:
-                if page.query_selector_all(sel):
-                    logging.info("[%s] Servicio visible (tarjeta) con selector %s, avanzando a selección", usuario, sel)
-                    cartel_encontrado = True
-                    return True, False
+            for frame in page.frames:
+                for sel in sels:
+                    try:
+                        if frame.query_selector_all(sel):
+                            logging.info("[%s] Servicio visible (tarjeta) con selector %s en frame %s, avanzando a selección", usuario, sel, frame.url)
+                            cartel_encontrado = True
+                            return True, False
+                    except Exception:
+                        continue
             if not cartel_encontrado:
                 logging.info("[%s] Cartel Memoria Democrática no visible (intento %s/%s)", usuario, intento + 1, max_intentos)
         except Exception as err:  # noqa: BLE001
