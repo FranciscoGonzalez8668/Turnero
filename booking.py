@@ -179,6 +179,22 @@ def _esperar_turnos_disponibles(
                     except Exception:
                         continue
             if not cartel_encontrado:
+                # Chequeo secundario: esperar brevemente por el texto en el DOM de cada frame.
+                # Usa MutationObserver internamente — se dispara en el instante que aparece,
+                # sin depender de la estructura HTML del cartel.
+                for frame in page.frames:
+                    try:
+                        frame.wait_for_function(
+                            "() => document.body.innerText.toLowerCase().includes('memoria democrática')",
+                            timeout=1500,
+                        )
+                        logging.info("[%s] Cartel detectado via texto en frame %s (intento %s)", usuario, frame.url, intento + 1)
+                        return True, False
+                    except PlaywrightTimeoutError:
+                        continue
+                    except Exception as err:  # noqa: BLE001
+                        _log_exception(usuario, "Error en wait_for_function cartel", err)
+                        continue
                 logging.info("[%s] Cartel Memoria Democrática no visible (intento %s/%s)", usuario, intento + 1, max_intentos)
         except Exception as err:  # noqa: BLE001
             _log_exception(usuario, "Error buscando tabla/servicio", err)
