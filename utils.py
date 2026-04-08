@@ -112,8 +112,8 @@ def _click_first_available(page, selectors, usuario: str, timeout: int = 30000) 
 
 def _click_first_available_any_frame(page, selectors, usuario: str, timeout: int = 30000) -> bool:
     frames = [("page", page)] + [(f"frame:{idx}", frame) for idx, frame in enumerate(page.frames)]
-    for frame_name, frame in frames:
-        for selector in selectors:
+    for selector in selectors:
+        for frame_name, frame in frames:
             try:
                 frame.click(selector, timeout=timeout)
                 logging.info("[%s] Click en '%s' dentro de %s", usuario, selector, frame_name)

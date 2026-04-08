@@ -389,7 +389,7 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     memoria_click_ts: float | None = None
     dump_10seg_realizado = False
     try:
-        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=20000)
+        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=3000)
         if servicio_visible:
             _wait_for_loading_end(page, usuario, timeout_ms=30000, use_networkidle=False)
             _dump_memoria(page, usuario, "instantaneo")
