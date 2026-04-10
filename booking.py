@@ -114,7 +114,8 @@ def _registrar_dump_html(page, usuario: str):
 
 def _esperar_turnos_disponibles(
     page, usuario: str, max_intentos: int = 50, deadline: datetime | None = None
-) -> tuple[bool, bool]:
+) -> tuple[bool, bool, bool]:
+    """Retorna (turnos_disponibles, deadline_hit, servicio_ya_clickeado)."""
     sin_turnos_textos = ["no hay horas disponibles", "no tienes ninguna cita"]
 
     def _sleep_with_deadline(segundos: float) -> bool:
@@ -131,7 +132,7 @@ def _esperar_turnos_disponibles(
         if deadline and datetime.now() >= deadline:
             logging.warning("[%s] Ventana de pingpong cerrada a las %s", usuario, deadline.strftime("%H:%M:%S"))
             _dump_html_snapshot("pingpong_deadline")
-            return False, True
+            return False, True, False
 
         arrow_clicked = _click_first_available_any_frame(page, config.SELECTORES["back_arrow"], usuario, timeout=8000)
         if not arrow_clicked:
@@ -161,7 +162,7 @@ def _esperar_turnos_disponibles(
                 try:
                     if frame.query_selector(config.SELECTORES["tabla_turnos"]):
                         logging.info("[%s] Tabla de turnos detectada en intento %s (frame %s)", usuario, intento + 1, frame.url)
-                        return True, False
+                        return True, False, False
                 except Exception:
                     continue
 
@@ -172,10 +173,17 @@ def _esperar_turnos_disponibles(
             for frame in page.frames:
                 for sel in sels:
                     try:
-                        if frame.query_selector_all(sel):
-                            logging.info("[%s] Servicio visible (tarjeta) con selector %s en frame %s, avanzando a selección", usuario, sel, frame.url)
-                            cartel_encontrado = True
-                            return True, False
+                        elements = frame.query_selector_all(sel)
+                        visibles = [el for el in elements if el.is_visible()]
+                        if visibles:
+                            logging.info("[%s] Servicio visible (tarjeta) con selector %s en frame %s, intentando click directo", usuario, sel, frame.url)
+                            try:
+                                visibles[0].click(timeout=2000)
+                                logging.info("[%s] Servicio clickeado directamente con selector %s", usuario, sel)
+                                cartel_encontrado = True
+                                return True, False, True
+                            except Exception as click_err:
+                                logging.warning("[%s] Servicio visible pero no clickeable (%s): %s", usuario, sel, click_err)
                     except Exception:
                         continue
             if not cartel_encontrado:
@@ -189,7 +197,7 @@ def _esperar_turnos_disponibles(
                             timeout=1500,
                         )
                         logging.info("[%s] Cartel detectado via texto en frame %s (intento %s)", usuario, frame.url, intento + 1)
-                        return True, False
+                        return True, False, False
                     except PlaywrightTimeoutError:
                         continue
                     except Exception as err:  # noqa: BLE001
@@ -205,7 +213,7 @@ def _esperar_turnos_disponibles(
                 logging.info("[%s] Sin turnos. Reintentando pronto (intento %s/%s)", usuario, intento + 1, max_intentos)
                 if datetime.now() >= deadline:
                     logging.warning("[%s] Ventana de pingpong terminada durante espera de reintento", usuario)
-                    return False, True
+                    return False, True, False
                 _click_first_available_any_frame(page, config.SELECTORES["ver_historial"], usuario, timeout=8000)
                 continue
         except Exception as err:  # noqa: BLE001
@@ -214,16 +222,16 @@ def _esperar_turnos_disponibles(
         if deadline and datetime.now() >= deadline:
             logging.warning("[%s] Ventana de pingpong terminada durante espera corta", usuario)
             _dump_html_snapshot("pingpong_deadline")
-            return False, True
+            return False, True, False
 
     if deadline and datetime.now() >= deadline:
         logging.warning("[%s] Ventana de pingpong cerrada antes de ver turnos disponibles", usuario)
         _dump_html_snapshot("pingpong_deadline")
-        return False, True
+        return False, True, False
 
     logging.warning("[%s] Máximos intentos sin ver turnos disponibles", usuario)
     _dump_html_snapshot("max_intentos_sin_turnos")
-    return False, False
+    return False, False, False
 
 
 def _seleccionar_boton_turno(botones_turno, target_slot: int, usuario: str):
@@ -377,7 +385,7 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
     else:
         logging.info("[%s] Minuto 10 alcanzado, iniciando pingpong enseguida", usuario)
 
-    turnos_disponibles, deadline_hit = _esperar_turnos_disponibles(
+    turnos_disponibles, deadline_hit, servicio_ya_clickeado = _esperar_turnos_disponibles(
         page, usuario, deadline=fin_pingpong, max_intentos=50
     )
     if not turnos_disponibles:
@@ -385,17 +393,23 @@ def intentar_sacar_turno(page, usuario: str, password: str, target_slot: int = 0
             return "PING_TIMEOUT"
         return "SIN_TURNOS"
 
-    servicio_visible = False
+    servicio_visible = servicio_ya_clickeado
     memoria_click_ts: float | None = None
     dump_10seg_realizado = False
-    try:
-        servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=3000)
-        if servicio_visible:
-            _wait_for_loading_end(page, usuario, timeout_ms=30000, use_networkidle=False)
-            _dump_memoria(page, usuario, "instantaneo")
-            memoria_click_ts = time.monotonic()
-    except Exception as err:  # noqa: BLE001
-        _log_exception(usuario, "Error intentando clickear servicio", err)
+    if servicio_ya_clickeado:
+        logging.info("[%s] Servicio ya clickeado en pingpong, saltando click del caller", usuario)
+        _wait_for_loading_end(page, usuario, timeout_ms=30000, use_networkidle=False)
+        _dump_memoria(page, usuario, "instantaneo")
+        memoria_click_ts = time.monotonic()
+    else:
+        try:
+            servicio_visible = _click_first_available_any_frame(page, config.SELECTORES["servicio_card"], usuario, timeout=3000)
+            if servicio_visible:
+                _wait_for_loading_end(page, usuario, timeout_ms=30000, use_networkidle=False)
+                _dump_memoria(page, usuario, "instantaneo")
+                memoria_click_ts = time.monotonic()
+        except Exception as err:  # noqa: BLE001
+            _log_exception(usuario, "Error intentando clickear servicio", err)
 
     if not servicio_visible:
         if not _wait_selector(page, config.SELECTORES["tabla_turnos"], usuario, timeout=30000):
